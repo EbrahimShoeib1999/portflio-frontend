@@ -1,36 +1,49 @@
-import { Card } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Label } from './ui/label';
-import { Mail, MapPin, Phone, Send } from 'lucide-react';
-import { useState } from 'react';
-import { motion } from 'motion/react';
-import { useInView } from 'motion/react';
-import { useRef } from 'react';
-import { toast } from 'sonner';
+import { Card } from "./ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Label } from "./ui/label";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { useState, useRef } from "react";
+import { motion } from "motion/react";
+import { useInView } from "motion/react";
+import { toast } from "sonner";
 
 export function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  
+
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // 🔹 Updated to use Formspree endpoint
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    toast.success('Message sent successfully! I\'ll get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xgvpovvz", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(e.currentTarget as HTMLFormElement),
+      });
+
+      if (response.ok) {
+        toast.success("Message sent successfully! I'll get back to you soon.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try again later.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Network error — please check your connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -38,44 +51,39 @@ export function Contact() {
       icon: Mail,
       title: "Email",
       value: "ibrahimshoeib@gmail.com",
-      href: "ibrahimshoeib@gmail.com"
+      href: "mailto:ibrahimshoeib@gmail.com",
     },
     {
       icon: Phone,
       title: "Phone",
       value: "+20 1271138683",
-      href: "tel:+20 1271138683"
+      href: "tel:+201271138683",
     },
     {
       icon: MapPin,
       title: "Location",
       value: "Egypt, New Damietta",
-      href: "https://www.google.com/maps/dir/31.4237983,31.66546/31.4237648,31.6653556/@31.4237434,31.667987,825m/data=!3m2!1e3!4b1!4m5!4m4!1m1!4e1!1m1!4e1?authuser=1&entry=ttu&g_ep=EgoyMDI1MTAxMy4wIKXMDSoASAFQAw%3D%3D"
-    }
+      href: "https://www.google.com/maps/place/New+Damietta,+Egypt",
+    },
   ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
   return (
     <section id="contact" ref={ref} className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -88,13 +96,15 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-20 h-1 bg-gradient-to-r from-primary to-chart-2 mx-auto mb-4 shadow-[0_0_10px_rgba(163,230,53,0.5)]"
           />
-          <h2 className="mb-4 text-white">Get In Touch</h2>
+          <h2 className="mb-4 text-white text-3xl font-semibold">Get In Touch</h2>
           <p className="text-white/70 max-w-2xl mx-auto">
             Have a project in mind or want to collaborate? Feel free to reach out!
           </p>
         </motion.div>
 
+        {/* Contact grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Contact Info Cards */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -134,6 +144,7 @@ export function Contact() {
             })}
           </motion.div>
 
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
@@ -143,77 +154,70 @@ export function Contact() {
             <Card className="p-8 hover:shadow-xl hover:shadow-primary/20 transition-shadow duration-300">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                  >
+                  <div>
                     <Label htmlFor="name">Name</Label>
                     <Input
                       id="name"
+                      name="name"
                       placeholder="Your name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       required
                       className="mt-2"
                     />
-                  </motion.div>
+                  </div>
 
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                  >
+                  <div>
                     <Label htmlFor="email">Email</Label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="your.email@example.com"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       required
                       className="mt-2"
                     />
-                  </motion.div>
+                  </div>
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, delay: 0.6 }}
-                >
+                <div>
                   <Label htmlFor="message">Message</Label>
                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Tell me about your project..."
                     rows={6}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     required
                     className="mt-2 resize-none"
                   />
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.5, delay: 0.7 }}
-                >
-                  <Button
-                    type="submit"
-                    className="w-full"
-                    disabled={isSubmitting}
-                    asChild
-                  >
-                    <motion.button
+                <div>
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    <motion.div
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
+                      className="flex items-center justify-center"
                     >
                       {isSubmitting ? (
                         <>
                           <motion.div
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            transition={{
+                              duration: 1,
+                              repeat: Infinity,
+                              ease: "linear",
+                            }}
                             className="mr-2"
                           >
                             ⏳
@@ -226,9 +230,9 @@ export function Contact() {
                           Send Message
                         </>
                       )}
-                    </motion.button>
+                    </motion.div>
                   </Button>
-                </motion.div>
+                </div>
               </form>
             </Card>
           </motion.div>
