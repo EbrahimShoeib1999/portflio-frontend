@@ -38,7 +38,7 @@ export function Projects() {
         "Saifi Stable is a horse stable management system based in Jordan. I was responsible for the backend development and for managing the development team. The project was built using Node.js and MongoDB.",
       tech: ["React", "TypeScript", "Socket.io", "Node.js", "MongoDB"],
       category: "fullstack",
-      img: images.saifi,
+      // img: images.saifi,
             github: "https://github.com/EbrahimShoeib1999",
 
       live: "https://example.com",
