@@ -89,13 +89,13 @@ export function ApiEndpointCard({ endpoint }: ApiEndpointCardProps) {
               <div className={`absolute top-0 ${isRTL ? 'left-0 border-r rounded-br-xl' : 'right-0 border-l rounded-bl-xl'} px-3 py-1 bg-background border-b border-border text-[9px] uppercase tracking-widest text-primary font-bold`}>
                 {t('apiDesign.request')}
               </div>
-              <HighlightedJson jsonString={endpoint.request} />
+              <HighlightedJson jsonString={endpoint.request || ''} />
             </div>
             <div className="rounded-2xl bg-muted/50 border border-border p-6 relative overflow-hidden group/code shadow-inner">
               <div className={`absolute top-0 ${isRTL ? 'left-0 border-r rounded-br-xl' : 'right-0 border-l rounded-bl-xl'} px-3 py-1 bg-primary/10 border-b border-border text-[9px] uppercase tracking-widest text-primary font-bold`}>
                 {t('apiDesign.response')} 200 OK
               </div>
-              <HighlightedJson jsonString={endpoint.response} />
+              <HighlightedJson jsonString={endpoint.response || ''} />
             </div>
           </div>
         </div>

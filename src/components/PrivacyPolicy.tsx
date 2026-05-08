@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Eye, Lock, FileText, Smartphone, Globe, Clock, Info } from 'lucide-react';
+import { Shield, Eye, Lock, Globe, Clock, Info } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Navigation } from './Navigation';
 import { Footer } from './Footer';

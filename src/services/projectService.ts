@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getProjectData } from './mockData';
+// import { getProjectData } from './mockData';
 import type { Project } from '../types/project';
 
 // Fetch real projects from the API

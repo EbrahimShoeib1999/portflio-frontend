@@ -6,6 +6,7 @@ import {
   FaNodeJs,
   FaDocker,
   FaGitAlt,
+  FaCheckCircle,
 } from 'react-icons/fa';
 import {
   SiTypescript,
@@ -15,7 +16,6 @@ import {
   SiPrisma,
   SiPostgresql,
   SiZod,
-  SiJoi,
 } from 'react-icons/si';
 
 const skillCategories = [
@@ -41,7 +41,7 @@ const skillCategories = [
     title: 'Validation & Tools',
     skills: [
       { name: 'Zod', icon: SiZod, color: '#3E67B1' },
-      { name: 'Joi', icon: SiJoi, color: '#F04E37' },
+      { name: 'Joi', icon: FaCheckCircle, color: '#F04E37' },
       { name: 'Docker', icon: FaDocker, color: '#2496ED' },
       { name: 'Git', icon: FaGitAlt, color: '#F05032' },
     ],
@@ -58,7 +58,7 @@ export function SkillsSection() {
       />
 
       <div className="grid gap-8 lg:grid-cols-3">
-        {skillCategories.map((category, categoryIndex) => (
+        {skillCategories.map((category: any, categoryIndex: number) => (
           <motion.div
             key={category.title}
             initial={{ opacity: 0, y: 30 }}
@@ -69,7 +69,7 @@ export function SkillsSection() {
             <Card className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-black/20">
               <h3 className="text-2xl font-semibold text-white mb-6">{category.title}</h3>
               <div className="grid gap-4">
-                {category.skills.map((skill, skillIndex) => {
+                {category.skills.map((skill: any, skillIndex: number) => {
                   const Icon = skill.icon;
                   return (
                     <motion.div
@@ -88,52 +88,6 @@ export function SkillsSection() {
                       </div>
                       <span className="text-white font-medium">{skill.name}</span>
                     </motion.div>
-                  );
-                })}
-              </div>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-export function SkillsSection() {
-  return (
-    <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8">
-      <SectionTitle
-        label="Skills"
-        title="A modern stack for scalable products"
-        description="Interactive categories for frontend, backend and tooling that power enterprise-ready systems."
-      />
-
-      <div className="grid gap-6 lg:grid-cols-3">
-        {skillSections.map((section, index) => (
-          <motion.div
-            key={section.title}
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-          >
-            <Card className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-lg shadow-black/20">
-              <div className="mb-6 flex items-center justify-between">
-                <h3 className="text-xl font-semibold text-white">{section.title}</h3>
-                <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.28em] text-white/70">
-                  {section.skills.length} items
-                </span>
-              </div>
-              <div className="grid gap-4">
-                {section.skills.map((skill) => {
-                  const Icon = skill.icon;
-                  return (
-                    <div key={skill.name} className="group flex items-center gap-4 rounded-3xl border border-white/10 bg-black/50 px-4 py-4 transition hover:border-primary/50 hover:bg-white/5">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary transition group-hover:scale-105">
-                        <Icon className="h-5 w-5" />
-                      </div>
-                      <span className="text-white/80 font-medium">{skill.name}</span>
-                    </div>
                   );
                 })}
               </div>

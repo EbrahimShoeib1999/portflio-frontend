@@ -44,10 +44,11 @@ export function ApiDesignSection() {
           {['auth-login', 'products-list', 'orders-create', 'users-update'].map((endpointId, index) => {
             const endpoint = {
               id: endpointId,
-              method: 
+              method: (
                 endpointId === 'auth-login' ? 'POST' :
                 endpointId === 'products-list' ? 'GET' :
-                endpointId === 'orders-create' ? 'POST' : 'PUT',
+                endpointId === 'orders-create' ? 'POST' : 'PUT'
+              ) as 'GET' | 'POST' | 'PUT' | 'DELETE',
               path: 
                 endpointId === 'auth-login' ? '/api/v1/auth/login' :
                 endpointId === 'products-list' ? '/api/v1/products' :

@@ -6,7 +6,6 @@ import {
   Smartphone, 
   Monitor, 
   Tablet, 
-  Globe, 
   TrendingUp,
   History
 } from 'lucide-react';
