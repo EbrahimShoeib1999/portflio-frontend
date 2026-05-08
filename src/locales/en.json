@@ -1,0 +1,363 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "architecture": "Architecture",
+    "apiDesign": "API Design",
+    "systemThinking": "System Thinking",
+    "experience": "Experience",
+    "contact": "Contact",
+    "resume": "Resume",
+    "logout": "Logout"
+  },
+  "hero": {
+    "typingText": "Full-Stack Developer (Backend-Focused)",
+    "title": "Ibrahim Shoeib",
+    "headline": "Building scalable SaaS & ERP systems",
+    "subtitle": "I architect and develop production-grade platforms with a focus on robust backend logic, clean APIs, and premium user experiences.",
+    "viewWork": "View Engineering Showcase",
+    "downloadResume": "Download Resume"
+  },
+  "about": {
+    "title": "Engineering with",
+    "titleHighlight": "Purpose & Precision",
+    "description": "I specialize in building complex, data-heavy applications. My focus is on architecting solutions that scale — whether designing a modular ERP system or optimizing database queries for a high-traffic SaaS platform. I prioritize clean engineering, maintainability, and robust performance.",
+    "highlights": {
+      "architecture": {
+        "title": "Scalable Architecture",
+        "description": "Designing distributed systems and microservices capable of handling high-volume SaaS and ERP traffic."
+      },
+      "database": {
+        "title": "Database Engineering",
+        "description": "Optimizing PostgreSQL and Prisma schemas for complex relational data, multi-tenant architectures, and fast analytics."
+      },
+      "api": {
+        "title": "Clean API Design",
+        "description": "Building robust REST and GraphQL APIs with strict typing, role-based access control, and comprehensive validation."
+      },
+      "frontend": {
+        "title": "Modern Frontend",
+        "description": "Crafting premium, performant React interfaces that seamlessly integrate with complex backend state."
+      }
+    }
+  },
+  "skills": {
+    "title": "Technical Expertise",
+    "subtitle": "A comprehensive overview of my professional stack and specialized engineering capabilities.",
+    "tabs": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "tools": "Tools"
+    }
+  },
+  "projects": {
+    "title": "Engineering Showcase",
+    "subtitle": "Production-grade systems, scalable architectures, and modular enterprise applications.",
+    "all": "All Systems",
+    "backend": "Backend",
+    "frontend": "Frontend",
+    "fullstack": "Full Stack",
+    "featured": "Featured",
+    "source": "Source",
+    "caseStudy": "Case Study"
+  },
+  "architecture": {
+    "title": "System Architecture",
+    "subtitle": "A highly decoupled, scalable data flow designed for maximum availability and strict consistency in enterprise environments.",
+    "techStack": "Tech Stack",
+    "layers": {
+      "frontend": {
+        "title": "Frontend Layer",
+        "summary": "React + TypeScript with modern UI frameworks for responsive, interactive user experiences.",
+        "details": "Handles user interactions, form validation, state management, and real-time updates using React Query for server state."
+      },
+      "api": {
+        "title": "API Layer",
+        "summary": "RESTful Express.js APIs with JWT authentication and comprehensive middleware for security.",
+        "details": "Implements rate limiting, CORS, input validation with Joi, and structured error handling for reliable client-server communication."
+      },
+      "business": {
+        "title": "Business Logic Layer",
+        "summary": "Domain-driven design with service classes handling complex ERP/SaaS business rules.",
+        "details": "Manages multi-tenant data isolation, role-based permissions, workflow automation, and integration with external services."
+      },
+      "database": {
+        "title": "Database Layer",
+        "summary": "PostgreSQL with Prisma ORM for type-safe database operations and migrations.",
+        "details": "Optimized queries, database indexing, connection pooling, and backup strategies for high-performance data persistence."
+      }
+    }
+  },
+  "apiDesign": {
+    "title": "API Contracts",
+    "titleHighlight": "Contracts",
+    "subtitle": "Clean, RESTful endpoints that serve as the backbone for high-performance frontends and external integrations.",
+    "request": "Request",
+    "response": "Response",
+    "endpoints": {
+      "auth-login": {
+        "title": "User Authentication",
+        "description": "Authenticate users with JWT tokens for secure API access.",
+        "request": "JSON body with email and password",
+        "response": "JWT access token and refresh token"
+      },
+      "products-list": {
+        "title": "List Products",
+        "description": "Retrieve paginated list of products with filtering and sorting.",
+        "request": "Query params: page, limit, category, search",
+        "response": "Array of product objects with metadata"
+      },
+      "orders-create": {
+        "title": "Create Order",
+        "description": "Process new orders with inventory validation and payment integration.",
+        "request": "JSON body with items, shipping, billing info",
+        "response": "Order confirmation with tracking ID"
+      },
+      "users-update": {
+        "title": "Update User Profile",
+        "description": "Update user information with role-based access control.",
+        "request": "JSON body with updated user fields",
+        "response": "Updated user object"
+      }
+    }
+  },
+  "systemThinking": {
+    "title": "System Thinking",
+    "titleHighlight": "Thinking",
+    "subtitle": "My engineering process for building reliable, scalable, and maintainable SaaS and ERP platforms.",
+    "steps": {
+      "analyze": {
+        "title": "Domain-Driven Discovery",
+        "summary": "Analyze business boundaries for Multi-warehouse Inventory Sync and Real-time Stock Reconciliation. Map complex domain workflows to distinct microservice bounded contexts."
+      },
+      "design": {
+        "title": "Distributed System Architecture",
+        "summary": "Design high-throughput Distributed Order Processing Pipelines using event-driven communication (Kafka/RabbitMQ) and robust transactional outbox patterns."
+      },
+      "build": {
+        "title": "Modular Business Engines",
+        "summary": "Implement isolated services such as Modular Billing & Invoicing and Role-Based Access Control (RBAC) Systems with fine-grained authorization policies."
+      },
+      "optimize": {
+        "title": "Data Layer Optimization",
+        "summary": "Scale relational data using intelligent partitioning, read-replicas, and multi-tier caching (Redis) for intense analytical query workloads."
+      },
+      "scale": {
+        "title": "Production Resilience",
+        "summary": "Ensure zero-downtime deployments via CI/CD, backed by comprehensive telemetry, distributed tracing, and automated failover mechanisms."
+      }
+    }
+  },
+  "contact": {
+    "title": "Initiate Connection",
+    "subtitle": "Discuss architectures, distributed systems, or your next major SaaS project.",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "namePlaceholder": "John Doe",
+    "messagePlaceholder": "Provide details about your project or architecture needs...",
+    "send": "Send Message",
+    "transmitting": "Transmitting...",
+    "success": "Message transmitted successfully. I'll review it shortly.",
+    "error": "Transmission failed. Please try again later.",
+    "networkError": "Network error — unable to connect.",
+    "phone": "Phone",
+    "location": "Location",
+    "locationValue": "Egypt, New Damietta"
+  },
+  "footer": {
+    "tagline": "Software Engineer focused on architecting scalable backend systems, robust APIs, and premium user experiences for SaaS platforms.",
+    "navigation": "Navigation",
+    "systemStatus": "System Status",
+    "allSystemsOk": "All systems operational",
+    "latestBuild": "Latest build",
+    "backToTop": "Back to top",
+    "copyright": "Designed with precision.",
+    "achievements": "Key Achievements",
+    "challenges": "Challenges Solved"
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "titleHighlight": "Experience",
+    "subtitle": "Real-world engineering projects building scalable ERP and SaaS systems that handle complex business logic and high-volume data.",
+    "entries": {
+      "erp-system-lead": {
+        "title": "Senior Full-Stack Engineer - ERP System",
+        "period": "2023 - Present",
+        "location": "Remote",
+        "teamSize": "8 developers",
+        "type": "ERP",
+        "description": "Led development of a comprehensive ERP system serving 500+ users across manufacturing and logistics operations. Built scalable backend with Node.js/Express, PostgreSQL, and real-time dashboard with React.",
+        "achievements": [
+          "Reduced inventory processing time by 60% through optimized database queries",
+          "Implemented real-time inventory tracking with WebSocket connections",
+          "Built automated reporting system handling 10k+ daily transactions"
+        ],
+        "challenges": [
+          "Complex multi-tenant data isolation requirements",
+          "High-volume transaction processing without performance degradation",
+          "Integration with legacy manufacturing systems"
+        ]
+      },
+      "saas-platform-architect": {
+        "title": "Full-Stack Architect - SaaS Platform",
+        "period": "2022 - 2023",
+        "location": "New York, NY",
+        "teamSize": "12 developers",
+        "type": "SaaS",
+        "description": "Architected and developed a B2B SaaS platform for project management with subscription billing, multi-tenant architecture, and advanced analytics. Handled 1000+ concurrent users.",
+        "achievements": [
+          "Designed microservices architecture scaling to 10k+ users",
+          "Implemented subscription billing with automated tier management",
+          "Built real-time collaboration features with conflict resolution"
+        ],
+        "challenges": [
+          "Complex billing logic with prorated subscriptions and add-ons",
+          "Real-time synchronization across distributed teams",
+          "Data migration from monolithic to microservices architecture"
+        ]
+      },
+      "ecommerce-backend-dev": {
+        "title": "Backend Engineer - E-commerce Platform",
+        "period": "2021 - 2022",
+        "location": "San Francisco, CA",
+        "teamSize": "15 developers",
+        "type": "E-commerce",
+        "description": "Developed high-performance backend for an e-commerce platform processing $2M+ monthly transactions. Implemented inventory management, payment processing, and order fulfillment systems.",
+        "achievements": [
+          "Built order processing system handling 50k+ daily transactions",
+          "Implemented fraud detection reducing chargebacks by 40%",
+          "Created inventory forecasting system with 95% accuracy"
+        ],
+        "challenges": [
+          "High availability requirements with 99.9% uptime SLA",
+          "Complex inventory allocation across multiple warehouses",
+          "Real-time price optimization based on demand patterns"
+        ]
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "projects": "Projects",
+    "analytics": "Analytics",
+    "messages": "Messages",
+    "settings": "Settings",
+    "addProject": "Add Project",
+    "editProject": "Edit Project",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search...",
+    "visitors": "Visitors",
+    "technologies": "Technologies",
+    "totalProjects": "Total Projects",
+    "recentMessages": "Recent Messages",
+    "allSystems": "All Systems",
+    "status": "Status",
+    "active": "Active",
+    "actions": "Actions",
+    "featured": "Featured",
+    "unfeatured": "Unfeatured",
+    "category": "Category",
+    "stars": "Stars",
+    "github": "Github URL",
+    "live": "Live URL",
+    "imgKey": "Image Key",
+    "desc": "Description",
+    "tech": "Technologies (comma separated)",
+    "allProjects": "All Projects",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "fullstack": "Full Stack",
+    "selectCategory": "Select Category",
+    "admin": "Admin",
+    "welcome": "Welcome back, Ibrahim. Here's your engineering control center.",
+    "projectsDescription": "Detailed overview and control of your engineering portfolio.",
+    "analyticsComingSoon": "Traffic Analytics Coming Soon...",
+    "userBehaviorComingSoon": "User Behavior Insights Coming Soon...",
+    "noMessages": "No new messages from the contact form.",
+    "settingsComingSoon": "System configuration settings will be available here.",
+    "syncing": "Synchronizing Data Systems...",
+    "connectionError": "Connection error. Is the server running?",
+    "projectDeleted": "Project deleted successfully",
+    "deleteFailed": "Delete failed",
+    "projectUpdated": "Project updated",
+    "projectCreated": "Project created",
+    "saveFailed": "Save failed",
+    "errorOccurred": "An error occurred",
+    "confirmDelete": "Are you sure you want to delete this project?",
+    "manageProjects": "Manage your engineering showcase projects",
+    "showing": "Showing {{count}} of {{total}} systems",
+    "previous": "Previous",
+    "next": "Next",
+    "noProjects": "No Projects Found",
+    "emptyStateDescription": "Your engineering showcase is empty. Start by adding your first production-grade system.",
+    "viewDetails": "View Details",
+    "featuredDescription": "Highlight on main showcase",
+    "imgPlaceholder": "e.g. ecommerce, codex, saas",
+    "adminAccount": "Admin Account",
+    "totalVisits": "Total Visits",
+    "uniqueVisitors": "Unique Visitors",
+    "activeUsers": "Active Users",
+    "avgSessionDuration": "Avg. Session",
+    "seconds": "s",
+    "privacyPolicy": "Privacy Policy",
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "How we handle your data and respect your privacy.",
+      "intro": "This Privacy Policy explains how I collect, use, and protect your information when you visit my engineering portfolio.",
+      "collection": {
+        "title": "Data We Collect",
+        "description": "I collect non-personal information to understand how visitors interact with my work. This includes:",
+        "items": [
+          "Pages visited and time spent",
+          "Device type (Mobile, Tablet, Desktop)",
+          "Browser type and version",
+          "Approximate location (Country level)",
+          "Session duration and interactions"
+        ]
+      },
+      "usage": {
+        "title": "How We Use Data",
+        "description": "The collected data is used exclusively for:",
+        "items": [
+          "Improving website performance and user experience",
+          "Analyzing which projects receive the most interest",
+          "Monitoring system health and stability"
+        ]
+      },
+      "cookies": {
+        "title": "Cookies",
+        "description": "I use local storage and basic cookies to maintain session continuity (e.g., ensuring you aren't counted twice during a single visit). No third-party tracking cookies are used."
+      },
+      "protection": {
+        "title": "Data Protection",
+        "description": "I do not collect personal identifiers like names, email addresses (unless you use the contact form), or passwords. All analytics data is anonymized."
+      }
+    },
+    "analyticsInsight": {
+      "title": "Visitor Insights",
+      "subtitle": "Real-time analysis of system interactions",
+      "mostVisited": "Most Visited Pages",
+      "recentActivity": "Recent Activity",
+      "pagePath": "Page Path",
+      "views": "Views",
+      "deviceDistribution": "Device Distribution",
+      "desktop": "Desktop",
+      "mobile": "Mobile",
+      "tablet": "Tablet",
+      "justNow": "Just now",
+      "minutesAgo": "{{count}}m ago"
+    },
+    "loginSuccess": "Welcome back, Ibrahim!",
+    "invalidCredentials": "Invalid credentials",
+    "loginSubtitle": "Secure access to your engineering control panel",
+    "email": "Email Address",
+    "forgotPassword": "Forgot?",
+    "accessDashboard": "Access Dashboard",
+    "authorizedAccess": "Authorized access only. Unauthorized entry attempts are logged."
+  }
+}

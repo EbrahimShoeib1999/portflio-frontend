@@ -1,39 +1,67 @@
-import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Skills } from './components/Skills';
-import { Projects } from './components/Projects';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { lazy, Suspense, useState, useEffect } from 'react';
+import { Home } from './components/Home';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
+import { AdminLogin } from './components/AdminLogin';
+import { WhatsAppButton } from './components/WhatsAppButton';
+import { CursorFollower } from './components/CursorFollower';
 import { Toaster } from './components/ui/sonner';
-import { motion, useScroll, useSpring } from 'motion/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Loader2 } from 'lucide-react';
+import { AnalyticsTracker } from './components/AnalyticsTracker';
+
+const AdminDashboard = lazy(() => import('./components/AdminDashboard').then(module => ({ default: module.AdminDashboard })));
+
+const queryClient = new QueryClient();
+
+// Protected Route Component
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const auth = localStorage.getItem('admin_auth') === 'true';
+    setIsAuthenticated(auth);
+  }, []);
+
+  if (isAuthenticated === null) return null; // Wait for check
+
+  if (!isAuthenticated) {
+    return <Navigate to="/admin/login" replace />;
+  }
+
+  return <>{children}</>;
+};
+
+const LoadingFallback = () => (
+  <div className="min-h-screen bg-[#020202] flex items-center justify-center">
+    <Loader2 className="w-10 h-10 text-primary animate-spin" />
+  </div>
+);
 
 export default function App() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-
   return (
-    <div className="dark min-h-screen bg-black">
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-chart-2 to-chart-3 origin-left z-[100] shadow-[0_0_10px_rgba(163,230,53,0.5)]"
-        style={{ scaleX }}
-      />
-      
-      <Navigation />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
-      </main>
-      <Footer />
-      <Toaster />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <AnalyticsTracker />
+        <CursorFollower />
+        <WhatsAppButton />
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route 
+              path="/admin/*" 
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              } 
+            />
+          </Routes>
+        </Suspense>
+        <Toaster />
+      </Router>
+    </QueryClientProvider>
   );
 }

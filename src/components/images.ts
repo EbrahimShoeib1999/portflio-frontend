@@ -1,14 +1,17 @@
-// import saifi from "../assets/projects Screen/Stable/dashBoard.png"
-import softWareCompany from "../assets/projects Screen/codex/Capture.png"
-import ecommerce from "../assets/projects Screen/ecommerce/26.10.2025_17.56.31_REC.png"
- import codex from "../assets/projects Screen/codex/Capture.png"
- import Faria from "../assets/projects Screen/faria/etherum.png"
-import Wadi from "../assets/projects Screen/wadi/Capture.jpeg"
+import saifi from "../assets/projects Screen/Stable/dashBoard.png";
+import ecommerce from "../assets/projects Screen/ecommerce/26.10.2025_17.56.31_REC.png";
+import codex from "../assets/projects Screen/codex/Capture.png";
+import faria from "../assets/projects Screen/faria/etherum.png";
+import wadi from "../assets/projects Screen/wadi/Capture.jpeg";
+import workspace from "../assets/projects Screen/portflio/Capture.PNG";
+import adwallpro from "../assets/projects Screen/AdwallPro/AdWallPro-منصة-الإعلانات-العصري-12-30-2025_03_48_PM.png";
+
 export const images = {
-    // saifi,
-    softWareCompany,
+    saifi,
     ecommerce,
     codex,
-    Faria,
-    Wadi
+    faria,
+    wadi,
+    workspace,
+    adwallpro
 };
