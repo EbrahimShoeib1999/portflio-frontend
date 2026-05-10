@@ -12,10 +12,10 @@
     "logout": "Logout"
   },
   "hero": {
-    "typingText": "Full-Stack Developer (Backend-Focused)",
-    "title": "Ibrahim Shoeib",
+    "typingText": "Backend-Focused Full-Stack Developer",
+    "title": "Ibrahim Mohamed Shoeib",
     "headline": "Building scalable SaaS & ERP systems",
-    "subtitle": "I architect and develop production-grade platforms with a focus on robust backend logic, clean APIs, and premium user experiences.",
+    "subtitle": "Full-Stack Developer with strong backend expertise in NestJS, Node.js, TypeScript, Prisma, PostgreSQL, and scalable SaaS/ERP systems. Experienced in building production-ready applications with modern frontend technologies including React.js and Next.js.",
     "viewWork": "View Engineering Showcase",
     "downloadResume": "Download Resume"
   },
@@ -164,7 +164,7 @@
     "networkError": "Network error — unable to connect.",
     "phone": "Phone",
     "location": "Location",
-    "locationValue": "Egypt, New Damietta"
+    "locationValue": "Damietta / New Damietta"
   },
   "footer": {
     "tagline": "Software Engineer focused on architecting scalable backend systems, robust APIs, and premium user experiences for SaaS platforms.",

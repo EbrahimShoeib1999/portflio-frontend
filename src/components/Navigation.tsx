@@ -86,9 +86,9 @@ export function Navigation() {
             >
               <div className="relative w-9 h-9 flex items-center justify-center">
                 <div className="absolute inset-0 bg-primary/15 rounded-xl rotate-45 group-hover:rotate-90 transition-all duration-700 border border-primary/20" />
-                <span className="font-black text-xl text-foreground relative z-10">C</span>
+                <span className="font-black text-xl text-foreground relative z-10">I-S</span>
               </div>
-              <span className="hidden lg:block font-black tracking-tighter text-lg text-foreground">CODEX</span>
+              <span className="hidden lg:block font-black tracking-tighter text-lg text-foreground">Ibrahim-Shoeib</span>
             </motion.button>
 
             {/* Desktop Navigation - Optimized for better spacing */}
@@ -147,7 +147,7 @@ export function Navigation() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: isRTL ? -100 : 100, opacity: 0 }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className={`fixed top-0 bottom-0 ${isRTL ? 'left-0' : 'right-0'} w-[300px] sm:w-[380px] z-[90] bg-background border-l border-border/50 shadow-2xl xl:hidden p-8 pt-28 flex flex-col`}
+              className="fixed top-0 bottom-0 end-0 w-[300px] sm:w-[380px] z-[90] bg-background border-s border-border/50 shadow-2xl xl:hidden p-8 pt-28 flex flex-col"
               dir={isRTL ? 'rtl' : 'ltr'}
             >
                <div className="flex flex-col gap-2 overflow-y-auto custom-scrollbar-hide">
@@ -159,9 +159,7 @@ export function Navigation() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + index * 0.04 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`w-full px-6 py-4 rounded-2xl text-sm font-black transition-all duration-300 ${
-                      isRTL ? 'text-right' : 'text-left'
-                    } ${
+                    className={`w-full px-6 py-4 rounded-2xl text-sm font-black transition-all duration-300 text-start ${
                       activeSection === item.id
                         ? 'bg-primary/10 text-primary border border-primary/20 shadow-lg shadow-primary/5'
                         : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground'

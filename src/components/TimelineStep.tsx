@@ -26,12 +26,12 @@ export function TimelineStep({ label, title, description, index }: TimelineStepP
       dir={isRTL ? 'rtl' : 'ltr'}
     >
       {/* Central Line for mobile */}
-      <div className={`absolute ${isRTL ? 'right-[27px]' : 'left-[27px]'} top-14 bottom-[-64px] w-0.5 bg-border sm:hidden last:hidden`} />
+      <div className="absolute start-[27px] top-14 bottom-[-64px] w-0.5 bg-border sm:hidden last:hidden" />
 
       {/* Desktop side content */}
-      <div className={`hidden sm:block w-[calc(50%-3rem)] ${!isEven ? 'order-1' : 'order-3'} ${!isEven ? (isRTL ? 'text-left' : 'text-right') : (isRTL ? 'text-right' : 'text-left')}`}>
+      <div className={`hidden sm:block w-[calc(50%-3rem)] ${!isEven ? 'order-1 text-end' : 'order-3 text-start'}`}>
         {((!isEven && !isRTL) || (isEven && isRTL)) ? (
-           <div className={isRTL ? 'pl-10' : 'pr-10'}>
+           <div className="pe-10">
              <h3 className="text-2xl font-black text-foreground tracking-tight mb-3">{title}</h3>
              <p className="text-foreground/70 dark:text-muted-foreground leading-relaxed font-medium">{description}</p>
            </div>
@@ -39,21 +39,21 @@ export function TimelineStep({ label, title, description, index }: TimelineStepP
       </div>
 
       {/* Center Node */}
-      <div className={`absolute ${isRTL ? 'right-0' : 'left-0'} sm:left-1/2 transform sm:-translate-x-1/2 flex flex-col items-center justify-center z-10 w-14 h-14 bg-background rounded-full border-4 border-card shadow-lg group-hover:border-primary/40 transition-all duration-500 order-2`}>
+      <div className="absolute start-0 sm:start-1/2 transform sm:-translate-x-1/2 flex flex-col items-center justify-center z-10 w-14 h-14 bg-background rounded-full border-4 border-card shadow-lg group-hover:border-primary/40 transition-all duration-500 order-2">
         <CheckCircle2 className="w-6 h-6 text-primary group-hover:scale-110 transition-transform duration-500" />
       </div>
 
       {/* Desktop/Mobile Card Content */}
-      <div className={`w-full ${isRTL ? 'pr-20' : 'pl-20'} sm:p-0 sm:w-[calc(50%-3rem)] ${isEven ? 'order-3' : 'order-1 sm:hidden'}`}>
+      <div className={`w-full ps-20 sm:p-0 sm:w-[calc(50%-3rem)] ${isEven ? 'order-3' : 'order-1 sm:hidden'}`}>
         {isEven ? (
-          <div className={isRTL ? 'sm:pr-10' : 'sm:pl-10'}>
+          <div className="sm:ps-10">
             <Badge className="mb-4 bg-primary text-primary-foreground border-none px-4 py-1 font-bold text-[10px] tracking-widest uppercase rounded-full shadow-sm">{label}</Badge>
             <h3 className="text-2xl font-black text-foreground tracking-tight mb-3">{title}</h3>
             <p className="text-foreground/70 dark:text-muted-foreground leading-relaxed font-medium">{description}</p>
           </div>
         ) : (
           <Card className="rounded-[2rem] border border-border bg-card p-8 shadow-xl sm:hidden relative overflow-hidden group-hover:border-primary/20 transition-all">
-            <div className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-1.5 h-full bg-primary/40`} />
+            <div className="absolute top-0 start-0 w-1.5 h-full bg-primary/40" />
             <Badge className="mb-4 bg-primary text-primary-foreground border-none px-4 py-1 font-bold text-[10px] tracking-widest uppercase rounded-full">{label}</Badge>
             <h3 className="text-xl font-black text-foreground tracking-tight mb-3">{title}</h3>
             <p className="text-foreground/70 dark:text-muted-foreground leading-relaxed font-medium text-sm">{description}</p>
@@ -63,9 +63,9 @@ export function TimelineStep({ label, title, description, index }: TimelineStepP
       
       {/* Mobile-only for even indexes */}
       {isEven && (
-         <div className={`w-full ${isRTL ? 'pr-20' : 'pl-20'} sm:hidden absolute inset-0 flex items-center`}>
+         <div className="w-full ps-20 sm:hidden absolute inset-0 flex items-center">
             <Card className="w-full rounded-[2rem] border border-border bg-card p-8 shadow-xl relative overflow-hidden group-hover:border-primary/20 transition-all">
-              <div className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-1.5 h-full bg-primary/40`} />
+              <div className="absolute top-0 start-0 w-1.5 h-full bg-primary/40" />
               <Badge className="mb-4 bg-primary text-primary-foreground border-none px-4 py-1 font-bold text-[10px] tracking-widest uppercase rounded-full">{label}</Badge>
               <h3 className="text-xl font-black text-foreground tracking-tight mb-3">{title}</h3>
               <p className="text-foreground/70 dark:text-muted-foreground leading-relaxed font-medium text-sm">{description}</p>

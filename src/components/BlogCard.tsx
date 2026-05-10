@@ -9,17 +9,17 @@ export function BlogCard({ post }: BlogCardProps) {
   return (
     <motion.article
       whileHover={{ y: -6 }}
-      className="group rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-black/20 transition-all"
+      className="group rounded-[2rem] border border-border bg-card p-8 shadow-elegant transition-all"
     >
-      <div className="flex items-center justify-between gap-3 text-white/60 mb-4">
-        <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.25em]">{post.readTime}</span>
+      <div className="flex items-center justify-between gap-3 text-muted-foreground mb-4">
+        <span className="rounded-full border border-border bg-muted px-3 py-1 text-xs uppercase tracking-[0.25em]">{post.readTime}</span>
         <span className="text-xs uppercase tracking-[0.28em] text-primary">{post.publishedAt}</span>
       </div>
-      <h3 className="text-2xl font-semibold text-white mb-3">{post.title}</h3>
-      <p className="text-white/70 leading-relaxed mb-6">{post.description}</p>
+      <h3 className="text-2xl font-semibold text-foreground mb-3">{post.title}</h3>
+      <p className="text-muted-foreground leading-relaxed mb-6">{post.description}</p>
       <div className="flex flex-wrap gap-2">
         {post.tags.map((tag) => (
-          <span key={tag} className="rounded-full bg-white/5 px-3 py-1 text-xs text-white/70">
+          <span key={tag} className="rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
             {tag}
           </span>
         ))}

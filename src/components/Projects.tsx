@@ -141,7 +141,7 @@ export function Projects() {
                     </div>
                      
                     {project.featured && (
-                      <div className={`absolute top-6 ${isRTL ? 'left-6' : 'right-6'} z-20`}>
+                      <div className="absolute top-6 end-6 z-20">
                         <Badge className="bg-primary text-primary-foreground border-none px-4 py-1.5 text-[10px] uppercase tracking-widest font-bold shadow-lg">
                           {t('projects.featured')}
                         </Badge>
@@ -182,7 +182,7 @@ export function Projects() {
                           asChild
                         >
                           <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className={`${isRTL ? 'ml-2' : 'mr-2'} h-4.5 w-4.5 opacity-70`} />
+                            <Github className="me-2 h-4.5 w-4.5 opacity-70" />
                             {t('projects.source')}
                           </a>
                         </Button>
@@ -190,7 +190,7 @@ export function Projects() {
                            onClick={() => openProjectModal(project.id)}
                            className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 transition-all rounded-2xl h-12 font-bold text-sm shadow-md shadow-primary/20"
                         >
-                          {t('projects.caseStudy')} <ArrowRight className={`${isRTL ? 'mr-2 rotate-180' : 'ml-2'} h-4.5 w-4.5`} />
+                          {t('projects.caseStudy')} <ArrowRight className={`ms-2 h-4.5 w-4.5 ${isRTL ? 'rotate-180' : ''}`} />
                         </Button>
                       </div>
                     </div>

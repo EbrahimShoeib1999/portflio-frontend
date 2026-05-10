@@ -1,36 +1,12 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense, useState, useEffect } from 'react';
-import { Home } from './components/Home';
-import { PrivacyPolicy } from './components/PrivacyPolicy';
-import { AdminLogin } from './components/AdminLogin';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Suspense } from 'react';
+import { lazy } from 'react';
+const Home = lazy(() => import('./components/Home').then(module => ({ default: module.Home })));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy').then(module => ({ default: module.PrivacyPolicy })));
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { CursorFollower } from './components/CursorFollower';
 import { Toaster } from './components/ui/sonner';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Loader2 } from 'lucide-react';
-import { AnalyticsTracker } from './components/AnalyticsTracker';
-
-const AdminDashboard = lazy(() => import('./components/AdminDashboard').then(module => ({ default: module.AdminDashboard })));
-
-const queryClient = new QueryClient();
-
-// Protected Route Component
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-
-  useEffect(() => {
-    const auth = localStorage.getItem('admin_auth') === 'true';
-    setIsAuthenticated(auth);
-  }, []);
-
-  if (isAuthenticated === null) return null; // Wait for check
-
-  if (!isAuthenticated) {
-    return <Navigate to="/admin/login" replace />;
-  }
-
-  return <>{children}</>;
-};
 
 const LoadingFallback = () => (
   <div className="min-h-screen bg-[#020202] flex items-center justify-center">
@@ -38,30 +14,28 @@ const LoadingFallback = () => (
   </div>
 );
 
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+
 export default function App() {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <AnalyticsTracker />
-        <CursorFollower />
-        <WhatsAppButton />
-        <Suspense fallback={<LoadingFallback />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/admin/login" element={<AdminLogin />} />
-            <Route 
-              path="/admin/*" 
-              element={
-                <ProtectedRoute>
-                  <AdminDashboard />
-                </ProtectedRoute>
-              } 
-            />
-          </Routes>
-        </Suspense>
-        <Toaster />
-      </Router>
-    </QueryClientProvider>
+    <Router>
+      <CursorFollower />
+      <WhatsAppButton />
+      <Suspense fallback={<LoadingFallback />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+        </Routes>
+      </Suspense>
+      <Toaster />
+    </Router>
   );
 }

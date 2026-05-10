@@ -66,8 +66,8 @@ export function SkillsSection() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
           >
-            <Card className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-black/20">
-              <h3 className="text-2xl font-semibold text-white mb-6">{category.title}</h3>
+            <Card className="rounded-[2rem] border border-border bg-card p-8 shadow-elegant">
+              <h3 className="text-2xl font-semibold text-foreground mb-6">{category.title}</h3>
               <div className="grid gap-4">
                 {category.skills.map((skill: any, skillIndex: number) => {
                   const Icon = skill.icon;
@@ -86,7 +86,7 @@ export function SkillsSection() {
                       >
                         <Icon className="h-5 w-5" style={{ color: skill.color }} />
                       </div>
-                      <span className="text-white font-medium">{skill.name}</span>
+                      <span className="text-foreground font-medium">{skill.name}</span>
                     </motion.div>
                   );
                 })}

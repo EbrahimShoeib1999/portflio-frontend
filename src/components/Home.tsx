@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Navigation } from './Navigation';
 import { Hero } from './Hero';
 import { About } from './About';
@@ -5,13 +6,21 @@ import { Skills } from './Skills';
 import { Projects } from './Projects';
 import { Contact } from './Contact';
 import { Footer } from './Footer';
-import { ArchitectureSection } from '../sections/ArchitectureSection';
-import { ApiDesignSection } from '../sections/ApiDesignSection';
-import { SystemThinkingSection } from '../sections/SystemThinkingSection';
-import { ExperienceSection } from '../sections/ExperienceSection';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import { WhatsAppButton } from './WhatsAppButton';
 import { CursorFollower } from './CursorFollower';
+import { Loader2 } from 'lucide-react';
+
+const ArchitectureSection = lazy(() => import('../sections/ArchitectureSection').then(m => ({ default: m.ArchitectureSection })));
+const ApiDesignSection = lazy(() => import('../sections/ApiDesignSection').then(m => ({ default: m.ApiDesignSection })));
+const SystemThinkingSection = lazy(() => import('../sections/SystemThinkingSection').then(m => ({ default: m.SystemThinkingSection })));
+const ExperienceSection = lazy(() => import('../sections/ExperienceSection').then(m => ({ default: m.ExperienceSection })));
+
+const SectionLoader = () => (
+  <div className="py-24 flex items-center justify-center">
+    <Loader2 className="w-8 h-8 text-primary animate-spin" />
+  </div>
+);
 
 export function Home() {
   const { scrollYProgress } = useScroll();
@@ -34,10 +43,12 @@ export function Home() {
         <About />
         <Skills />
         <Projects />
-        <ArchitectureSection />
-        <ApiDesignSection />
-        <SystemThinkingSection />
-        <ExperienceSection />
+        <Suspense fallback={<SectionLoader />}>
+          <ArchitectureSection />
+          <ApiDesignSection />
+          <SystemThinkingSection />
+          <ExperienceSection />
+        </Suspense>
         <Contact />
       </main>
       <Footer />

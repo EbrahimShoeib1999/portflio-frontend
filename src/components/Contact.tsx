@@ -60,8 +60,8 @@ export function Contact() {
   };
 
   const contactInfo = [
-    { icon: Mail, title: "Email", value: "ibrahimshoeib@gmail.com", href: "mailto:ibrahimshoeib@gmail.com" },
-    { icon: Phone, title: t('contact.phone'), value: "+20 1271138683", href: "tel:+201271138683" },
+    { icon: Mail, title: "Email", value: "ibrahimshoeib255@gmail.com", href: "mailto:ibrahimshoeib255@gmail.com" },
+    { icon: Phone, title: t('contact.phone'), value: "+20 1010814966", href: "tel:+201010814966" },
     { icon: MapPin, title: t('contact.location'), value: t('contact.locationValue'), href: "https://www.google.com/maps/place/New+Damietta,+Egypt" },
   ];
 
@@ -183,7 +183,7 @@ export function Contact() {
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? t('contact.transmitting') : t('contact.send')}
-                  {!isSubmitting && <Send className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} h-4 w-4`} />}
+                  {!isSubmitting && <Send className={`ms-2 h-4 w-4 ${isRTL ? 'rotate-180' : ''}`} />}
                 </Button>
               </form>
             </Card>

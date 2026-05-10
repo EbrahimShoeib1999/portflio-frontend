@@ -1,0 +1,115 @@
+import type { Project } from '../types/project';
+
+export const projects: Project[] = [
+  {
+    id: 'saas-workspace',
+    title: 'SaaS Workspace Backend System',
+    description: 'A comprehensive backend system for a SaaS workspace, featuring multi-tenant architecture, complex role-based access control (RBAC), and scalable API design.',
+    tech: ['NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'Redis', 'Docker'],
+    category: 'backend',
+    img: 'codex', // fallback to existing image key if needed, or update images.ts later
+    github: 'https://github.com/ibrahimshoeib/saas-workspace-backend',
+    live: '#',
+    featured: true,
+    stars: 142,
+    caseStudy: {
+      problem: 'Needed a scalable, secure backend for a multi-tenant SaaS application to handle isolated data for multiple organizations while sharing the same infrastructure.',
+      solution: 'Architected a robust NestJS backend using Prisma for type-safe database interactions and PostgreSQL for reliable storage. Implemented Redis caching for high-performance data retrieval.',
+      challenges: [
+        'Ensuring strict data isolation between tenants.',
+        'Designing a flexible yet secure RBAC system for fine-grained permissions.',
+        'Optimizing database queries to handle large datasets across multiple organizations.',
+      ],
+      architecture: 'API Gateway → Auth Module → Tenant Module → Prisma ORM → PostgreSQL / Redis',
+      databaseDesign: 'Utilized Row-Level Security (RLS) concepts and application-level tenant ID filtering to ensure data isolation. Highly normalized schema for Users, Organizations, Roles, and Permissions.',
+      scalability: 'Microservice-ready architecture. Used Redis for caching frequent queries and rate-limiting API requests to prevent abuse.',
+      architectureStack: 'NestJS → Prisma → PostgreSQL → Redis'
+    },
+  },
+  {
+    id: 'deliveria',
+    title: 'Deliveria – Delivery Management Backend',
+    description: 'A high-performance backend system for managing complex delivery logistics, real-time driver tracking, and order assignment algorithms.',
+    tech: ['Node.js', 'Express.js', 'MongoDB', 'Socket.io', 'Redis', 'TypeScript'],
+    category: 'backend',
+    img: 'ecommerce', 
+    github: 'https://github.com/ibrahimshoeib/deliveria-backend',
+    live: '#',
+    featured: true,
+    stars: 115,
+    caseStudy: {
+      problem: 'Delivery businesses struggled with real-time tracking, inefficient order routing, and high latency in driver-customer communication.',
+      solution: 'Developed a real-time event-driven backend using Node.js and Socket.io. Implemented geospatial queries in MongoDB to find the nearest available drivers and optimize routing.',
+      challenges: [
+        'Handling thousands of concurrent WebSocket connections for live tracking.',
+        'Optimizing geospatial queries for driver location matching in real-time.',
+        'Ensuring system reliability during peak delivery hours.',
+      ],
+      architecture: 'Express REST API + Socket.io Server → Service Layer → MongoDB (Geospatial Indexes) / Redis (Pub/Sub)',
+    },
+  },
+  {
+    id: 'adwall-backend',
+    title: 'AdWall Backend System',
+    description: 'An analytics and campaign management backend for advertising platforms, capable of processing high volumes of click and impression data.',
+    tech: ['NestJS', 'PostgreSQL', 'Prisma', 'TypeScript', 'Docker'],
+    category: 'backend',
+    img: 'adwallpro',
+    github: 'https://github.com/ibrahimshoeib/adwall-backend',
+    live: '#',
+    featured: true,
+    stars: 98,
+    caseStudy: {
+      problem: 'Advertisers needed a fast, reliable system to track campaigns, process thousands of events per second, and generate aggregate analytics.',
+      solution: 'Engineered a highly optimized data ingestion pipeline using NestJS. Designed specialized database schemas for time-series data and aggregation queries.',
+      challenges: [
+        'Ingesting and processing high-throughput event data without bottlenecking.',
+        'Designing efficient database schemas for complex analytics queries.',
+      ],
+      architecture: 'Event Ingestion API → Processing Queue → Prisma → PostgreSQL Analytics Database',
+    },
+  },
+  {
+    id: 'ecommerce-dashboard',
+    title: 'E-Commerce Dashboard',
+    description: 'A full-stack, modern dashboard for e-commerce store management, including inventory tracking, order processing, and sales analytics.',
+    tech: ['React.js', 'Next.js', 'Tailwind CSS', 'shadcn/ui', 'Redux Toolkit', 'Zustand'],
+    category: 'frontend',
+    img: 'ecommerce',
+    github: 'https://github.com/ibrahimshoeib/ecommerce-dashboard',
+    live: '#',
+    featured: false,
+    stars: 85,
+    caseStudy: {
+      problem: 'Store owners required a centralized, intuitive interface to manage products, view sales trends, and process orders efficiently.',
+      solution: 'Built a highly responsive, feature-rich dashboard using Next.js for optimized rendering. Utilized Redux Toolkit for complex global state management and shadcn/ui for premium components.',
+      challenges: [
+        'Managing complex frontend state for dynamic inventory forms.',
+        'Optimizing large data tables for performance and smooth scrolling.',
+        'Ensuring a seamless, app-like experience across all devices.',
+      ],
+      architecture: 'Next.js (App Router) → React Query / RTK → UI Components (shadcn)',
+    },
+  },
+  {
+    id: 'egyptapro',
+    title: 'EgyptaPro Backend',
+    description: 'A comprehensive, scalable backend infrastructure tailored for enterprise-level applications, emphasizing security and performance.',
+    tech: ['NestJS', 'TypeScript', 'PostgreSQL', 'Joi', 'Zod', 'Docker'],
+    category: 'backend',
+    img: 'codex',
+    github: 'https://github.com/ibrahimshoeib/egyptapro-backend',
+    live: '#',
+    featured: false,
+    stars: 76,
+    caseStudy: {
+      problem: 'Enterprise clients needed a highly secure, strictly validated backend system capable of handling complex business rules and workflows.',
+      solution: 'Created a modular NestJS application with strict DTO validation using Joi and Zod. Implemented comprehensive error handling and logging mechanisms.',
+      challenges: [
+        'Enforcing strict data validation across numerous complex endpoints.',
+        'Maintaining clean code architecture while implementing intricate business logic.',
+      ],
+      architecture: 'NestJS Controllers → Validation Pipes (Zod/Joi) → Service Layer → Repository Pattern',
+    },
+  }
+];

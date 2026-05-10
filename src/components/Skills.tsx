@@ -1,13 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { 
-  FaReact, FaNodeJs, FaGitAlt, FaDocker, FaHtml5, FaCss3Alt 
+  FaReact, FaNodeJs, FaGitAlt, FaDocker
 } from 'react-icons/fa';
 import { 
   SiTypescript, SiRedux, SiNestjs, SiPrisma, SiPostgresql, 
   SiReactquery, SiNextdotjs, SiTailwindcss, SiZod, SiMongodb,
-  SiPostman, SiFramer, SiReacthookform,
-  SiSequelize, SiMui
+  SiFramer, SiReacthookform,
+  SiExpress, SiMui
 } from 'react-icons/si';
 import { 
   Layout, 
@@ -17,8 +17,6 @@ import {
   Zap, 
   ShieldCheck, 
   Layers, 
-  Cpu,
-  Globe,
   Monitor
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -56,11 +54,9 @@ export function Skills() {
       colorClass: 'from-red-500/20 to-rose-500/20 text-rose-500',
       skills: [
         { name: 'NestJS', icon: SiNestjs, color: '#E0234E', isMainStack: true },
-        { name: 'Node.js', icon: FaNodeJs, color: '#339933' },
+        { name: 'Node.js', icon: FaNodeJs, color: '#339933', isMainStack: true },
+        { name: 'Express.js', icon: SiExpress, color: '#000000' },
         { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', isMainStack: true },
-        { name: 'Express.js', icon: FaNodeJs, color: '#000000' },
-        { name: 'REST APIs', icon: Globe, color: '#0055FF' },
-        { name: 'Modular Architecture', icon: Cpu, color: '#10b981' },
       ],
     },
     {
@@ -70,11 +66,8 @@ export function Skills() {
       colorClass: 'from-blue-500/20 to-cyan-500/20 text-cyan-500',
       skills: [
         { name: 'React.js', icon: FaReact, color: '#61DAFB', isMainStack: true },
-        { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
+        { name: 'Next.js', icon: SiNextdotjs, color: '#000000', isMainStack: true },
         { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', isMainStack: true },
-        { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
-        { name: 'HTML5', icon: FaHtml5, color: '#E34F26' },
-        { name: 'CSS3', icon: FaCss3Alt, color: '#1572B6' },
       ],
     },
     {
@@ -83,7 +76,7 @@ export function Skills() {
       icon: Layers,
       colorClass: 'from-purple-500/20 to-indigo-500/20 text-indigo-500',
       skills: [
-        { name: 'Redux Toolkit', icon: SiRedux, color: '#764ABC' },
+        { name: 'Redux Toolkit (RTK)', icon: SiRedux, color: '#764ABC' },
         { name: 'RTK Query', icon: SiReactquery, color: '#764ABC' },
         { name: 'Zustand', icon: Zap, color: '#4338ca' },
         { name: 'Context API', icon: FaReact, color: '#61DAFB' },
@@ -96,9 +89,8 @@ export function Skills() {
       colorClass: 'from-emerald-500/20 to-teal-500/20 text-emerald-500',
       skills: [
         { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1', isMainStack: true },
-        { name: 'Prisma ORM', icon: SiPrisma, color: '#2D3748', isMainStack: true },
         { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
-        { name: 'Sequelize', icon: SiSequelize, color: '#52B0E7' },
+        { name: 'Prisma ORM', icon: SiPrisma, color: '#2D3748', isMainStack: true },
       ],
     },
     {
@@ -109,7 +101,8 @@ export function Skills() {
       skills: [
         { name: 'React Hook Form', icon: SiReacthookform, color: '#EC5990' },
         { name: 'Zod', icon: SiZod, color: '#3E67B1' },
-        { name: 'Yup / Joi', icon: ShieldCheck, color: '#F97316' },
+        { name: 'Yup', icon: ShieldCheck, color: '#F97316' },
+        { name: 'Joi', icon: ShieldCheck, color: '#000000' },
       ],
     },
     {
@@ -118,8 +111,11 @@ export function Skills() {
       icon: Layout,
       colorClass: 'from-pink-500/20 to-rose-500/20 text-pink-500',
       skills: [
+        { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
         { name: 'shadcn/ui', icon: SiTailwindcss, color: '#000000' },
         { name: 'Material UI', icon: SiMui, color: '#007FFF' },
+        { name: 'PrimeReact', icon: FaReact, color: '#1B6ED8' },
+        { name: 'Flowbite', icon: SiTailwindcss, color: '#1C64F2' },
         { name: 'Framer Motion', icon: SiFramer, color: '#E91E63' },
       ],
     },
@@ -131,7 +127,6 @@ export function Skills() {
       skills: [
         { name: 'Docker', icon: FaDocker, color: '#2496ED' },
         { name: 'Git & GitHub', icon: FaGitAlt, color: '#F05032' },
-        { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
       ],
     },
   ];

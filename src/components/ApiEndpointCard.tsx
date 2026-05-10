@@ -75,7 +75,7 @@ export function ApiEndpointCard({ endpoint }: ApiEndpointCardProps) {
             <div dir="ltr" className="font-mono text-xs sm:text-sm text-foreground/90 font-bold tracking-wide bg-muted px-4 py-1.5 rounded-xl border border-border shadow-inner">
               {endpoint.path}
             </div>
-            <button className={`opacity-0 group-hover:opacity-100 transition-opacity bg-muted p-2 rounded-xl hover:bg-muted/80 border border-border ${isRTL ? 'mr-auto' : 'ml-auto'}`}>
+            <button className="opacity-0 group-hover:opacity-100 transition-opacity bg-muted p-2 rounded-xl hover:bg-muted/80 border border-border ms-auto">
                <Copy className="w-4 h-4 text-muted-foreground" />
             </button>
           </div>
@@ -86,13 +86,13 @@ export function ApiEndpointCard({ endpoint }: ApiEndpointCardProps) {
 
           <div className="mt-auto space-y-5">
             <div className="rounded-2xl bg-muted/50 border border-border p-6 relative overflow-hidden group/code shadow-inner">
-              <div className={`absolute top-0 ${isRTL ? 'left-0 border-r rounded-br-xl' : 'right-0 border-l rounded-bl-xl'} px-3 py-1 bg-background border-b border-border text-[9px] uppercase tracking-widest text-primary font-bold`}>
+              <div className="absolute top-0 end-0 border-s rounded-es-xl px-3 py-1 bg-background border-b border-border text-[9px] uppercase tracking-widest text-primary font-bold">
                 {t('apiDesign.request')}
               </div>
               <HighlightedJson jsonString={endpoint.request || ''} />
             </div>
             <div className="rounded-2xl bg-muted/50 border border-border p-6 relative overflow-hidden group/code shadow-inner">
-              <div className={`absolute top-0 ${isRTL ? 'left-0 border-r rounded-br-xl' : 'right-0 border-l rounded-bl-xl'} px-3 py-1 bg-primary/10 border-b border-border text-[9px] uppercase tracking-widest text-primary font-bold`}>
+              <div className="absolute top-0 end-0 border-s rounded-es-xl px-3 py-1 bg-primary/10 border-b border-border text-[9px] uppercase tracking-widest text-primary font-bold">
                 {t('apiDesign.response')} 200 OK
               </div>
               <HighlightedJson jsonString={endpoint.response || ''} />

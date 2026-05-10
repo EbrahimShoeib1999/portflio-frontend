@@ -64,21 +64,21 @@ export function ExperienceSection() {
                 transition={{ duration: 0.7, delay: index * 0.1, ease: easing }}
               >
                 <Card className="group relative rounded-3xl border border-border bg-card p-6 sm:p-10 hover:bg-muted/50 transition-all duration-500 overflow-hidden hover:shadow-lg hover:border-primary/20">
-                  <div className={`absolute top-0 ${isRTL ? 'right-0' : 'left-0'} w-1.5 h-full bg-gradient-to-b from-primary to-blue-500 opacity-40 group-hover:opacity-100 transition-opacity`} />
+                  <div className={`absolute top-0 start-0 w-1.5 h-full bg-gradient-to-b from-primary to-blue-500 opacity-40 group-hover:opacity-100 transition-opacity`} />
                   
                   <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
                     <div>
                       <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 tracking-tight">{exp.title}</h3>
-                      <div className={`flex flex-wrap items-center gap-3 sm:gap-5 text-sm text-muted-foreground font-medium ${isRTL ? 'flex-row-reverse' : ''}`}>
-                        <span className={`flex items-center gap-2 bg-muted px-3 py-1.5 rounded-lg border border-border ${isRTL ? 'flex-row-reverse' : ''}`}>
+                      <div className="flex flex-wrap items-center gap-3 sm:gap-5 text-sm text-muted-foreground font-medium">
+                        <span className="flex items-center gap-2 bg-muted px-3 py-1.5 rounded-lg border border-border">
                           <Calendar className="w-4 h-4 text-primary" />
                           {exp.period}
                         </span>
-                        <span className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                        <span className="flex items-center gap-2">
                           <MapPin className="w-4 h-4 text-muted-foreground/50" />
                           {exp.location}
                         </span>
-                        <span className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                        <span className="flex items-center gap-2">
                           <Users className="w-4 h-4 text-muted-foreground/50" />
                           {exp.teamSize}
                         </span>
@@ -100,7 +100,7 @@ export function ExperienceSection() {
                       </h4>
                       <ul className="space-y-3">
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i} className={`flex items-start gap-3 text-muted-foreground font-light text-sm ${isRTL ? 'flex-row-reverse text-right' : ''}`}>
+                          <li key={i} className="flex items-start gap-3 text-muted-foreground font-light text-sm">
                             <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
                             <span className="leading-relaxed">{achievement}</span>
                           </li>
@@ -113,7 +113,7 @@ export function ExperienceSection() {
                       </h4>
                       <ul className="space-y-3">
                         {exp.challenges.map((challenge, i) => (
-                          <li key={i} className={`flex items-start gap-3 text-muted-foreground font-light text-sm ${isRTL ? 'flex-row-reverse text-right' : ''}`}>
+                          <li key={i} className="flex items-start gap-3 text-muted-foreground font-light text-sm">
                             <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0" />
                             <span className="leading-relaxed">{challenge}</span>
                           </li>
@@ -122,7 +122,7 @@ export function ExperienceSection() {
                     </div>
                   </div>
 
-                  <div className={`flex flex-wrap gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech) => (
                       <span key={tech} className="rounded-xl border border-border bg-muted px-4 py-1.5 text-xs font-medium text-muted-foreground group-hover:text-foreground group-hover:border-primary/20 transition-all">
                         {tech}

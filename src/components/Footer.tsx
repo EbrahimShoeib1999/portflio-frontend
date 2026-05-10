@@ -12,9 +12,9 @@ export function Footer() {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/EbrahimShoeib1999', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/ibrahim-shoeib-9b1339246', label: 'LinkedIn' },
-    { icon: Mail, href: 'mailto:ibrahimshoeib@gmail.com', label: 'Email' },
-    { icon: Phone, href: 'https://wa.me/201271138683', label: 'WhatsApp' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ibrahim-shoeib-9b1339246/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:ibrahimshoeib255@gmail.com', label: 'Email' },
+    { icon: Phone, href: 'https://wa.me/201024994092', label: 'WhatsApp' },
   ];
 
   const navSections = [

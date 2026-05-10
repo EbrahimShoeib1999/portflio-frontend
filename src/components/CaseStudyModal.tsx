@@ -104,7 +104,7 @@ export function CaseStudyModal() {
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-card to-background pointer-events-none" />
               
-              <DialogHeader className={`p-8 sm:p-10 pb-8 border-b border-border bg-muted/30 backdrop-blur-xl relative z-10 ${isRTL ? 'text-right' : 'text-left'}`}>
+              <DialogHeader className="p-8 sm:p-10 pb-8 border-b border-border bg-muted/30 backdrop-blur-xl relative z-10 text-start">
                 <div className="flex items-start justify-between gap-6">
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -153,9 +153,9 @@ export function CaseStudyModal() {
                       </div>
                       
                       {section.isCode ? (
-                        <div className={isRTL ? 'pr-0 sm:pr-[60px]' : 'pl-0 sm:pl-[60px]'}>
+                        <div className="ps-0 sm:ps-[60px]">
                            <div className="rounded-xl bg-muted border border-border p-6 relative overflow-hidden group/code">
-                              <div className={`absolute top-0 ${isRTL ? 'left-0 rounded-br-lg' : 'right-0 rounded-bl-lg'} px-3 py-1 bg-background text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center gap-2`}>
+                              <div className="absolute top-0 end-0 rounded-es-lg px-3 py-1 bg-background text-[10px] uppercase tracking-widest text-muted-foreground font-semibold flex items-center gap-2">
                                  <Code2 className="w-3 h-3" /> {isRTL ? 'تصميم النظام' : 'System Design'}
                               </div>
                               <code className="text-sm font-mono text-muted-foreground block whitespace-pre-wrap leading-loose">
@@ -164,21 +164,21 @@ export function CaseStudyModal() {
                            </div>
                         </div>
                       ) : (
-                        <p className={`text-muted-foreground leading-relaxed font-light text-[15px] ${isRTL ? 'pr-0 sm:pr-[60px]' : 'pl-0 sm:pl-[60px]'} whitespace-pre-wrap`}>
+                        <p className="text-muted-foreground leading-relaxed font-light text-[15px] ps-0 sm:ps-[60px] whitespace-pre-wrap">
                           {section.text || (isRTL ? 'جاري التحميل...' : 'Loading details...')}
                         </p>
                       )}
 
                       {/* Divider */}
                       {index < sections.length - 1 && (
-                        <div className={`w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mt-8 ${isRTL ? 'mr-0 sm:mr-[60px]' : 'ml-0 sm:ml-[60px]'} max-w-xl`} />
+                        <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mt-8 ms-0 sm:ms-[60px] max-w-xl" />
                       )}
                     </motion.div>
                   ))}
                 </div>
 
                 <div className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-8 relative">
-                  <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+                  <div className="absolute top-0 inset-x-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
                   <div>
                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground mb-3 font-semibold">
                        {isRTL ? 'التقنيات المستخدمة' : 'Core Technologies'}

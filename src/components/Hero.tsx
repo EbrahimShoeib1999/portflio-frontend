@@ -35,9 +35,9 @@ export function Hero() {
 
   const socialLinks = [
     { icon: Github, href: 'https://github.com/EbrahimShoeib1999', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/ibrahim-shoeib-9b1339246', label: 'LinkedIn' },
-    { icon: Mail, href: 'https://mail.google.com/mail/u/1', label: 'Email' },
-    { icon: Phone, href: 'https://wa.me/201271138683', label: 'WhatsApp' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ibrahim-shoeib-9b1339246/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:ibrahimshoeib255@gmail.com', label: 'Email' },
+    { icon: Phone, href: 'https://wa.me/201024994092', label: 'WhatsApp' },
   ];
 
   return (
@@ -121,7 +121,7 @@ export function Hero() {
             onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
           >
             {t('hero.viewWork')}
-            <ArrowRight className={`${isRTL ? 'me-2 rotate-180' : 'ms-2'} w-5 h-5`} />
+            <ArrowRight className={`ms-2 w-5 h-5 ${isRTL ? 'rotate-180' : ''}`} />
           </Button>
           <Button
             variant="outline"
@@ -130,7 +130,7 @@ export function Hero() {
             asChild
           >
             <a href="/Ibrahim_Mohamed Shoeib_Backend-Focused Full-Stack Developer resume.pdf" download="Ibrahim_Mohamed Shoeib_Backend-Focused Full-Stack Developer resume.pdf">
-              <Download className={`${isRTL ? 'ms-2' : 'me-2'} h-5 w-5 opacity-70`} />
+              <Download className="me-2 h-5 w-5 opacity-70" />
               {t('nav.resume')}
             </a>
           </Button>

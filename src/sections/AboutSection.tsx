@@ -28,7 +28,7 @@ const strengths = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#05060d]">
+    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-background">
       <SectionTitle
         label="About"
         title="Engineering scalable SaaS & ERP systems"
@@ -50,12 +50,12 @@ export function AboutSection() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <Card className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-black/20 hover:border-primary/30 transition-colors">
+            <Card className="rounded-[2rem] border border-border bg-card p-8 shadow-elegant hover:border-primary/30 transition-colors">
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-3xl bg-primary/10 text-primary mb-6">
                 <Icon className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-semibold text-white mb-3">{headline}</h3>
-              <p className="text-white/70 leading-relaxed">{description}</p>
+              <h3 className="text-xl font-semibold text-foreground mb-3">{headline}</h3>
+              <p className="text-muted-foreground leading-relaxed">{description}</p>
             </Card>
           </motion.div>
         ))}
