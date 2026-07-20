@@ -5,12 +5,14 @@ import { ExternalLink, Github, Star } from 'lucide-react';
 import type { Project } from '../types/project';
 import { useModalStore } from '../hooks/useModalStore';
 import { images } from './images';
+import { useTranslation } from 'react-i18next'; // أضفنا الـ hook
 
 interface ProjectCardProps {
   project: Project;
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+const { t } = useTranslation();
   const openProjectModal = useModalStore((state) => state.openProjectModal);
 
   return (
@@ -21,7 +23,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="relative h-72 overflow-hidden">
         <motion.img
           src={images[project.img as keyof typeof images] || images.ecommerce}
-          alt={project.title}
+          alt={t(`projectsData.${project.id}.title`)} // جلب الـ alt من الترجمة
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           whileHover={{ scale: 1.1 }}
         />
@@ -41,14 +43,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="text-sm uppercase tracking-[0.26em] text-primary/80">{project.category}</p>
-            <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+            {/* جلب العنوان من الترجمة */}
+            <h3 className="text-2xl font-semibold text-white">{t(`projectsData.${project.id}.title`)}</h3>
           </div>
           {project.featured && (
-            <Badge className="bg-yellow-500/15 text-yellow-300 border-yellow-500/40">Featured</Badge>
+            <Badge className="bg-yellow-500/15 text-yellow-300 border-yellow-500/40">{t('projects.featured')}</Badge>
           )}
         </div>
 
-        <p className="text-white/70 line-clamp-3">{project.description}</p>
+        {/* جلب الوصف من الترجمة */}
+        <p className="text-white/70 line-clamp-3">{t(`projectsData.${project.id}.description`)}</p>
 
         <div className="flex flex-wrap gap-2">
           {project.tech.slice(0, 4).map((tech) => (
@@ -65,7 +69,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="h-11 border-white/10 text-white/90 hover:border-primary/60"
             onClick={() => openProjectModal(project.id)}
           >
-            Case Study
+            {t('projects.caseStudy')}
           </Button>
           <Button
             size="sm"
@@ -73,7 +77,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             asChild
           >
             <a href={project.live} target="_blank" rel="noreferrer">
-              <ExternalLink className="h-4 w-4" /> Live demo
+              <ExternalLink className="h-4 w-4" /> Live Demo
             </a>
           </Button>
         </div>

@@ -14,78 +14,85 @@ export function CaseStudyModal() {
   const { activeProjectId, isProjectModalOpen, closeProjectModal } = useModalStore();
   const { data: project } = useProjectById(activeProjectId || undefined);
 
-  const caseStudy = project?.caseStudy;
-
   const sections = useMemo(() => {
-    if (!caseStudy) return [];
+    if (!project?.id) return [];
     
-    const baseSections = [
-      { 
-        icon: Layers, 
-        title: isRTL ? 'بيان المشكلة' : 'Problem Statement', 
-        text: caseStudy.problem, 
-        color: 'text-blue-400', 
-        isCode: false 
-      },
-      { 
-        icon: Wrench, 
-        title: isRTL ? 'الحل الهندسي' : 'Engineering Solution', 
-        text: caseStudy.solution, 
-        color: 'text-emerald-400', 
-        isCode: false 
-      },
-    ];
+    // دالة مساعدة لجلب النصوص من ملف الترجمة بسهولة
+    const getT = (key: string) => t(`projectsData.${project.id}.caseStudy.${key}`, '');
+    
+    // جلب المصفوفات (التحديات) من ملف الترجمة
+    const challenges = t(`projectsData.${project.id}.caseStudy.challenges`, { returnObjects: true }) as string[];
 
-    if (caseStudy.databaseDesign) {
-      baseSections.push({ 
-        icon: Database, 
-        title: isRTL ? 'تصميم البيانات والمخطط' : 'Data Schema & Design', 
-        text: caseStudy.databaseDesign, 
-        color: 'text-purple-400', 
-        isCode: true 
-      });
-    }
+    const baseSections = [];
 
-    if (caseStudy.scalability) {
-      baseSections.push({ 
-        icon: Zap, 
-        title: isRTL ? 'قرارات قابلية التوسع' : 'Scalability Decisions', 
-        text: caseStudy.scalability, 
-        color: 'text-yellow-400', 
-        isCode: false 
-      });
-    }
+    const problem = getT('problem');
+    if (problem) baseSections.push({ 
+      icon: Layers, 
+      title: isRTL ? 'بيان المشكلة' : 'Problem Statement', 
+      text: problem, 
+      color: 'text-blue-400', 
+      isCode: false 
+    });
 
-    if (caseStudy.architectureStack) {
+    const solution = getT('solution');
+    if (solution) baseSections.push({ 
+      icon: Wrench, 
+      title: isRTL ? 'الحل الهندسي' : 'Engineering Solution', 
+      text: solution, 
+      color: 'text-emerald-400', 
+      isCode: false 
+    });
+
+    const databaseDesign = getT('databaseDesign');
+    if (databaseDesign) baseSections.push({ 
+      icon: Database, 
+      title: isRTL ? 'تصميم البيانات والمخطط' : 'Data Schema & Design', 
+      text: databaseDesign, 
+      color: 'text-purple-400', 
+      isCode: true 
+    });
+
+    const scalability = getT('scalability');
+    if (scalability) baseSections.push({ 
+      icon: Zap, 
+      title: isRTL ? 'قرارات قابلية التوسع' : 'Scalability Decisions', 
+      text: scalability, 
+      color: 'text-yellow-400', 
+      isCode: false 
+    });
+
+    const architectureStack = getT('architectureStack');
+    const architecture = getT('architecture');
+    if (architectureStack) {
       baseSections.push({ 
         icon: Braces, 
         title: isRTL ? 'هيكلية النظام' : 'Architecture Stack', 
-        text: caseStudy.architectureStack, 
+        text: architectureStack, 
         color: 'text-cyan-400', 
         isCode: true 
       });
-    } else if (caseStudy.architecture) {
+    } else if (architecture) {
       baseSections.push({ 
         icon: LayoutTemplate, 
         title: isRTL ? 'الهيكلية' : 'Architecture', 
-        text: caseStudy.architecture, 
+        text: architecture, 
         color: 'text-cyan-400', 
         isCode: true 
       });
     }
 
-    if (caseStudy.challenges && caseStudy.challenges.length > 0) {
+    if (challenges && challenges.length > 0) {
       baseSections.push({ 
         icon: AlertTriangle, 
         title: isRTL ? 'تحديات تم حلها' : 'Key Challenges Solved', 
-        text: caseStudy.challenges.join('\n• '), 
+        text: challenges.join('\n• '), 
         color: 'text-rose-400', 
         isCode: false 
       });
     }
 
     return baseSections;
-  }, [caseStudy, isRTL]);
+  }, [project?.id, t, isRTL]);
 
   return (
     <Dialog open={isProjectModalOpen} onOpenChange={closeProjectModal}>
@@ -118,10 +125,12 @@ export function CaseStudyModal() {
                        )}
                     </div>
                     <DialogTitle className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight leading-tight">
-                      {project?.title ?? (isRTL ? 'مواصفات النظام' : 'System Specification')}
+                      {/* جلب العنوان من الترجمة */}
+                      {t(`projectsData.${project?.id}.title`, isRTL ? 'مواصفات النظام' : 'System Specification')}
                     </DialogTitle>
                     <p className="text-muted-foreground mt-4 text-base sm:text-lg font-light leading-relaxed max-w-2xl">
-                      {project?.description}
+                      {/* جلب الوصف من الترجمة */}
+                      {t(`projectsData.${project?.id}.description`)}
                     </p>
                   </div>
                   <Button 
