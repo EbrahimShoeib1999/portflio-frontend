@@ -129,7 +129,7 @@ export function Hero() {
             className="w-full sm:w-auto h-14 px-10 rounded-2xl bg-background border-border text-foreground hover:bg-muted transition-all hover:border-primary/30 font-bold text-base shadow-sm"
             asChild
           >
-            <a href="/Ibrahim_Mohamed Shoeib_Backend-Focused Full-Stack Developer resume.pdf" download="Ibrahim_Mohamed Shoeib_Backend-Focused Full-Stack Developer resume.pdf">
+            <a href="/Ibrahim_Shoeib_CV.pdf" download="Ibrahim_Shoeib_CV.pdf">
               <Download className="me-2 h-5 w-5 opacity-70" />
               {t('nav.resume')}
             </a>
