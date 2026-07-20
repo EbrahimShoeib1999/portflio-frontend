@@ -359,5 +359,177 @@
     "forgotPassword": "Forgot?",
     "accessDashboard": "Access Dashboard",
     "authorizedAccess": "Authorized access only. Unauthorized entry attempts are logged."
+  },
+  "projectsData": {
+    "deliveria-platform": {
+      "title": "Deliveria – Food Delivery Platform",
+      "description": "A full-stack food delivery platform that enables customers to browse restaurants, place orders, track deliveries, and manage their profiles while providing administrators with complete restaurant, order, and delivery management through a modern dashboard.",
+      "caseStudy": {
+        "problem": "Restaurants and delivery businesses needed a centralized platform to manage menus, customer orders, deliveries, and administrative operations efficiently.",
+        "solution": "Developed a full-stack food delivery application featuring restaurant management, menu management, order processing, customer accounts, delivery tracking, and secure authentication using React, Express, and MongoDB.",
+        "challenges": [
+          "Managing the complete order lifecycle.",
+          "Implementing secure authentication and authorization.",
+          "Designing scalable RESTful APIs.",
+          "Handling restaurant and menu relationships.",
+          "Building responsive user interfaces across devices."
+        ],
+        "architecture": "React.js → Axios → Express.js REST API → MongoDB",
+        "databaseDesign": "MongoDB collections for users, restaurants, menus, orders, customers, delivery information, and authentication data using Mongoose ODM.",
+        "scalability": "Modular architecture with separated controllers, services, middleware, and models to simplify maintenance and future feature expansion.",
+        "architectureStack": "React.js → Express.js → MongoDB → JWT Authentication"
+      }
+    },
+    "adwall-backend": {
+      "title": "AdWall Backend API",
+      "description": "A scalable backend for a digital advertising platform that enables users to manage advertising campaigns, user accounts, media uploads, and administrative operations through secure RESTful APIs. Designed with a modular architecture focused on performance, security, and maintainability.",
+      "caseStudy": {
+        "problem": "Advertising platforms needed a secure backend to manage campaigns, users, uploaded media, and administrative operations while maintaining high performance and scalability.",
+        "solution": "Developed a modular backend using Express.js and MongoDB, providing secure authentication, campaign management, media upload functionality, user management, and RESTful APIs for the advertising platform.",
+        "challenges": [
+          "Implementing secure JWT authentication.",
+          "Managing file uploads efficiently.",
+          "Designing scalable REST APIs.",
+          "Structuring modular business logic.",
+          "Optimizing MongoDB queries for large datasets."
+        ],
+        "architecture": "Express.js REST API → Controllers → Services → MongoDB",
+        "databaseDesign": "MongoDB collections designed for users, campaigns, advertisements, uploaded media, roles, and authentication with Mongoose ODM.",
+        "scalability": "Layered architecture with middleware, controllers, services, and models to simplify maintenance and future feature expansion.",
+        "architectureStack": "Node.js → Express.js → MongoDB → JWT Authentication"
+      }
+    },
+    "ecommerce-dashboard": {
+      "title": "E-Commerce Management Dashboard",
+      "description": "A modern, responsive e-commerce administration dashboard built to simplify product, category, order, customer, and sales management. The application provides real-time analytics, intuitive data visualization, and an optimized user experience for managing online stores efficiently.",
+      "caseStudy": {
+        "problem": "Store owners needed a modern dashboard to efficiently manage products, categories, customers, orders, and business performance without relying on multiple disconnected tools.",
+        "solution": "Built a scalable React dashboard with reusable components, modern UI, advanced forms, protected routing, and REST API integration. The dashboard enables administrators to manage products, orders, customers, and sales while monitoring business performance through interactive analytics.",
+        "challenges": [
+          "Managing complex application state across multiple modules.",
+          "Designing reusable UI components for scalability.",
+          "Building dynamic forms with validation.",
+          "Optimizing large tables and dashboard performance.",
+          "Creating responsive layouts for desktop and mobile devices."
+        ],
+        "architecture": "React.js → Redux Toolkit → Axios → REST API",
+        "databaseDesign": "Consumes REST APIs designed around products, categories, customers, orders, analytics, and authentication, with normalized relational backend data.",
+        "scalability": "Feature-based architecture with reusable components, centralized state management, API abstraction, and scalable routing structure suitable for enterprise dashboards.",
+        "architectureStack": "React.js → Redux Toolkit → Tailwind CSS → REST API"
+      }
+    },
+    "egyptrapro-erp": {
+      "title": "EgyptraPro ERP Backend",
+      "description": "A scalable enterprise ERP backend built with NestJS to automate business operations through modular services including authentication, user management, inventory, accounting, purchasing, sales, HR, and reporting. Designed with clean architecture, secure APIs, and enterprise best practices.",
+      "caseStudy": {
+        "problem": "Enterprise businesses required a secure and scalable backend capable of handling multiple business modules while maintaining clean architecture and high performance.",
+        "solution": "Developed a modular ERP backend using NestJS and PostgreSQL with Prisma ORM. Implemented authentication, RBAC, validation, business modules, and RESTful APIs following enterprise software architecture.",
+        "challenges": [
+          "Designing a modular architecture for multiple ERP domains.",
+          "Implementing secure authentication and authorization.",
+          "Managing complex business logic across accounting, inventory, purchasing, and sales.",
+          "Maintaining clean, reusable, and scalable code.",
+          "Building comprehensive API validation and error handling."
+        ],
+        "architecture": "NestJS Controllers → Guards → Services → Prisma ORM → PostgreSQL",
+        "databaseDesign": "Designed a normalized PostgreSQL database using Prisma ORM for users, roles, permissions, inventory, accounting, purchasing, suppliers, customers, and business transactions.",
+        "scalability": "Built using a feature-based modular architecture with dependency injection, reusable services, DTO validation, and scalable REST APIs suitable for enterprise applications.",
+        "architectureStack": "NestJS → Prisma ORM → PostgreSQL → JWT → Swagger"
+      }
+    },
+    "restaurant-pos-erp": {
+      "title": "Restaurant POS & ERP System",
+      "description": "A comprehensive Restaurant POS & ERP platform designed to automate restaurant operations through POS, inventory management, accounting, purchasing, sales, customer management, and business reporting. Built with a scalable architecture and enterprise-grade backend.",
+      "caseStudy": {
+        "problem": "Restaurant businesses relied on disconnected systems for POS, accounting, inventory, and purchasing, leading to inefficient workflows and reporting.",
+        "solution": "Developed a modular ERP system integrating POS, inventory, accounting, purchasing, sales, customer management, and reporting into a single platform using NestJS, Prisma, PostgreSQL, and React.",
+        "challenges": [
+          "Designing an enterprise-grade modular architecture.",
+          "Implementing accounting and Chart of Accounts modules.",
+          "Synchronizing inventory movements with purchasing and sales.",
+          "Managing authentication and RBAC across multiple business modules."
+        ],
+        "architecture": "React + Vite → REST API → NestJS → Prisma ORM → PostgreSQL",
+        "databaseDesign": "Normalized PostgreSQL schema with Prisma ORM covering products, inventory, accounting, purchasing, customers, suppliers, users, and financial transactions.",
+        "scalability": "Built with modular architecture allowing future microservice migration and horizontal scaling.",
+        "architectureStack": "React → NestJS → Prisma → PostgreSQL"
+      }
+    },
+    "saifi-stable": {
+      "title": "Saifi Stable Management System",
+      "description": "A full-stack management system developed for horse stables and coffee shop operations. The platform centralizes horse management, trainer assignments, customer records, reservations, invoicing, and café operations through a modern dashboard, improving daily business workflows and operational efficiency.",
+      "caseStudy": {
+        "problem": "The business relied on manual processes for managing horses, trainers, customers, reservations, and coffee shop operations, making day-to-day management inefficient and difficult to scale.",
+        "solution": "Developed a complete management platform with a React frontend and Express backend to centralize horse records, trainer management, customer data, reservations, invoicing, and café management within a single application.",
+        "challenges": [
+          "Designing business workflows for multiple operational modules.",
+          "Managing relationships between horses, trainers, owners, and customers.",
+          "Building invoice generation and reservation management.",
+          "Implementing secure authentication and authorization.",
+          "Creating responsive dashboards for administrators."
+        ],
+        "architecture": "React.js → Axios → Express.js REST API → MongoDB",
+        "databaseDesign": "MongoDB collections for horses, trainers, customers, reservations, invoices, café orders, users, and authentication managed with Mongoose ODM.",
+        "scalability": "Built with a modular architecture separating frontend components, backend controllers, services, middleware, and database models to simplify future expansion.",
+        "architectureStack": "React.js → Express.js → MongoDB → JWT Authentication"
+      }
+    },
+    "fairia-blockchain": {
+      "title": "Fairia – Blockchain Real Estate Platform",
+      "description": "A decentralized real estate platform that leverages Ethereum smart contracts to provide secure, transparent, and tamper-proof property transactions. The platform allows users to browse properties, connect crypto wallets, and interact with blockchain-powered contracts through a modern web interface.",
+      "caseStudy": {
+        "problem": "Traditional real estate transactions often suffer from lengthy paperwork, limited transparency, and reliance on intermediaries, increasing both cost and processing time.",
+        "solution": "Developed a blockchain-powered real estate platform that integrates React with Solidity smart contracts, enabling secure property listings, wallet authentication, and decentralized property transactions through Ethereum.",
+        "challenges": [
+          "Integrating React with Ethereum smart contracts.",
+          "Managing MetaMask wallet authentication.",
+          "Handling asynchronous blockchain transactions.",
+          "Designing a seamless Web3 user experience.",
+          "Ensuring secure communication between the frontend, backend, and blockchain network."
+        ],
+        "architecture": "React.js → Web3.js → Solidity Smart Contracts → Ethereum → Node.js API",
+        "databaseDesign": "Combined blockchain storage for ownership and transaction records with a backend database for user accounts, property metadata, and application management.",
+        "scalability": "Designed with a modular Web3 architecture that separates blockchain logic from backend services, allowing future migration to Layer-2 networks and additional smart contract modules.",
+        "architectureStack": "React.js → Node.js → Solidity → Ethereum → Web3.js"
+      }
+    },
+    "wadi-travel": {
+      "title": "WADI – Travel & Tourism Platform",
+      "description": "A modern travel and tourism web application that provides users with a seamless experience for discovering destinations, exploring travel packages, booking trips, and managing reservations through a responsive and visually engaging interface.",
+      "caseStudy": {
+        "problem": "Travel agencies required a modern digital platform that simplifies destination discovery, trip booking, and reservation management while delivering an engaging user experience across all devices.",
+        "solution": "Developed a responsive React-based travel platform featuring destination browsing, travel package exploration, booking workflows, user-friendly navigation, and seamless REST API integration with a scalable frontend architecture.",
+        "challenges": [
+          "Building reusable UI components for multiple travel modules.",
+          "Managing application state across booking and destination pages.",
+          "Optimizing performance for media-rich travel content.",
+          "Creating responsive layouts for desktop, tablet, and mobile devices.",
+          "Integrating frontend features with RESTful APIs."
+        ],
+        "architecture": "React.js → Redux Toolkit → Axios → REST API",
+        "databaseDesign": "Consumes REST APIs for destinations, travel packages, bookings, users, and reservation data while maintaining a clean frontend architecture.",
+        "scalability": "Feature-based architecture with reusable components, centralized state management, lazy loading, and API abstraction for long-term maintainability.",
+        "architectureStack": "React.js → TypeScript → Redux Toolkit → Tailwind CSS → REST API"
+      }
+    },
+    "workspace-backend": {
+      "title": "Workspace Management Backend",
+      "description": "A scalable backend system for managing workspaces, customer reservations, financial operations, and administrative services. Designed with a modular architecture to simplify business workflows and provide secure RESTful APIs.",
+      "caseStudy": {
+        "problem": "Workspace businesses required a centralized backend to manage reservations, customers, financial operations, and staff through a single secure platform.",
+        "solution": "Built a modular Express.js backend providing secure RESTful APIs for authentication, workspace management, reservations, customer management, financial records, and administrative operations using MongoDB.",
+        "challenges": [
+          "Designing scalable RESTful APIs.",
+          "Implementing secure JWT authentication.",
+          "Managing complex reservation workflows.",
+          "Structuring business logic for maintainability.",
+          "Ensuring efficient MongoDB queries."
+        ],
+        "architecture": "Express.js REST API → Controllers → Services → MongoDB",
+        "databaseDesign": "MongoDB collections for users, workspaces, reservations, customers, financial transactions, and administrative data using Mongoose ODM.",
+        "scalability": "Layered architecture separating routes, controllers, services, and models for easier maintenance and future scaling.",
+        "architectureStack": "Node.js → Express.js → MongoDB → JWT"
+      }
+    }
   }
 }
