@@ -7,7 +7,7 @@ import workspace from "../assets/projects-screen/portflio/Capture.png";
 import adwallpro from "../assets/projects-screen/AdwallPro/AdWallPro-منصة-الإعلانات-العصري-12-30-2025_03_48_PM.png";
 import egyptra from "../assets/projects-screen/egyptra/WhatsApp Image 2026-07-20 at 4.13.36 PM.jpeg";
 import restaurant from "../assets/projects-screen/restaurant/Capture1.png";
-import deliveria from "../assets/projects-screen/delveria/WhatsApp Image 2026-07-20 at 5.33.24 PM.jpeg"
+import deliveria from "../assets/projects-screen/deliveria/Capture.png";
 export const images = {
   saifi,
   stable: saifi,
