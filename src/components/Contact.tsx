@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "react-i18next";
+import { sendEmail } from "../services/emailService";
 
 const easing = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -36,21 +37,13 @@ export function Contact() {
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     try {
-      const formData = new FormData();
-      formData.append("name", data.name);
-      formData.append("email", data.email);
-      formData.append("message", data.message);
-      const response = await fetch("https://formspree.io/f/xgvpovvz", {
-        method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+      await sendEmail({
+        name: data.name,
+        email: data.email,
+        message: data.message,
       });
-      if (response.ok) {
-        toast.success(t('contact.success'));
-        reset();
-      } else {
-        toast.error(t('contact.error'));
-      }
+      toast.success(t('contact.success'));
+      reset();
     } catch (error) {
       console.error(error);
       toast.error(t('contact.networkError'));
