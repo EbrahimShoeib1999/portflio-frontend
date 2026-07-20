@@ -3,7 +3,7 @@ import { Button } from './ui/button';
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import img from "../assets/ibrahim.jpg";
+import img from "../assets/ibrahim.png";
 
 const easing = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
