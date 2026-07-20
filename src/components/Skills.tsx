@@ -17,7 +17,8 @@ import {
   Zap, 
   ShieldCheck, 
   Layers, 
-  Monitor
+  Monitor,
+  Database
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
@@ -46,90 +47,119 @@ export function Skills() {
   const sectionRef = useRef(null);
   const [activeTab, setActiveTab] = useState('backend');
 
-  const SKILLS_DATA: SkillCategory[] = [
-    {
-      id: 'backend',
-      title: isRTL ? 'الخلفية (Backend)' : 'Backend',
-      icon: Server,
-      colorClass: 'from-red-500/20 to-rose-500/20 text-rose-500',
-      skills: [
-        { name: 'NestJS', icon: SiNestjs, color: '#E0234E', isMainStack: true },
-        { name: 'Node.js', icon: FaNodeJs, color: '#339933', isMainStack: true },
-        { name: 'Express.js', icon: SiExpress, color: '#000000' },
-        { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', isMainStack: true },
-      ],
-    },
-    {
-      id: 'frontend',
-      title: isRTL ? 'الأمامية (Frontend)' : 'Frontend',
-      icon: Monitor,
-      colorClass: 'from-blue-500/20 to-cyan-500/20 text-cyan-500',
-      skills: [
-        { name: 'React.js', icon: FaReact, color: '#61DAFB', isMainStack: true },
-        { name: 'Next.js', icon: SiNextdotjs, color: '#000000', isMainStack: true },
-        { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', isMainStack: true },
-      ],
-    },
-    {
-      id: 'state',
-      title: isRTL ? 'إدارة الحالة' : 'State Management',
-      icon: Layers,
-      colorClass: 'from-purple-500/20 to-indigo-500/20 text-indigo-500',
-      skills: [
-        { name: 'Redux Toolkit (RTK)', icon: SiRedux, color: '#764ABC' },
-        { name: 'RTK Query', icon: SiReactquery, color: '#764ABC' },
-        { name: 'Zustand', icon: Zap, color: '#4338ca' },
-        { name: 'Context API', icon: FaReact, color: '#61DAFB' },
-      ],
-    },
-    {
-      id: 'database',
-      title: isRTL ? 'قواعد البيانات' : 'Database & ORM',
-      icon: DbIcon,
-      colorClass: 'from-emerald-500/20 to-teal-500/20 text-emerald-500',
-      skills: [
-        { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1', isMainStack: true },
-        { name: 'MongoDB', icon: SiMongodb, color: '#47A248' },
-        { name: 'Prisma ORM', icon: SiPrisma, color: '#2D3748', isMainStack: true },
-      ],
-    },
-    {
-      id: 'forms',
-      title: isRTL ? 'التحقق' : 'Forms & Validation',
-      icon: ShieldCheck,
-      colorClass: 'from-amber-500/20 to-yellow-500/20 text-amber-500',
-      skills: [
-        { name: 'React Hook Form', icon: SiReacthookform, color: '#EC5990' },
-        { name: 'Zod', icon: SiZod, color: '#3E67B1' },
-        { name: 'Yup', icon: ShieldCheck, color: '#F97316' },
-        { name: 'Joi', icon: ShieldCheck, color: '#000000' },
-      ],
-    },
-    {
-      id: 'ui',
-      title: isRTL ? 'التصميم' : 'UI & Design',
-      icon: Layout,
-      colorClass: 'from-pink-500/20 to-rose-500/20 text-pink-500',
-      skills: [
-        { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
-        { name: 'shadcn/ui', icon: SiTailwindcss, color: '#000000' },
-        { name: 'Material UI', icon: SiMui, color: '#007FFF' },
-        { name: 'PrimeReact', icon: FaReact, color: '#1B6ED8' },
-        { name: 'Flowbite', icon: SiTailwindcss, color: '#1C64F2' },
-        { name: 'Framer Motion', icon: SiFramer, color: '#E91E63' },
-      ],
-    },
-    {
-      id: 'devops',
-      title: isRTL ? 'الأدوات' : 'DevOps & Tools',
-      icon: Wrench,
-      colorClass: 'from-slate-500/20 to-zinc-500/20 text-slate-500',
-      skills: [
-        { name: 'Docker', icon: FaDocker, color: '#2496ED' },
-        { name: 'Git & GitHub', icon: FaGitAlt, color: '#F05032' },
-      ],
-    },
-  ];
+const SKILLS_DATA: SkillCategory[] = [
+  {
+    id: "backend",
+    title: isRTL ? "الخلفية (Backend)" : "Backend",
+    icon: Server,
+    colorClass: "from-red-500/20 to-rose-500/20 text-rose-500",
+    skills: [
+      { name: "NestJS", icon: SiNestjs, color: "#E0234E", isMainStack: true },
+      { name: "Node.js", icon: FaNodeJs, color: "#339933", isMainStack: true },
+      { name: "Express.js", icon: SiExpress, color: "#000000" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6", isMainStack: true },
+      { name: "REST APIs", icon: Server, color: "#F97316" },
+      { name: "JWT Authentication", icon: ShieldCheck, color: "#16A34A" },
+      { name: "RBAC", icon: ShieldCheck, color: "#2563EB" },
+    ],
+  },
+
+  {
+    id: "frontend",
+    title: isRTL ? "الواجهة الأمامية" : "Frontend",
+    icon: Monitor,
+    colorClass: "from-blue-500/20 to-cyan-500/20 text-cyan-500",
+    skills: [
+      { name: "React.js", icon: FaReact, color: "#61DAFB", isMainStack: true },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000", isMainStack: true },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6", isMainStack: true },
+      { name: "HTML5", icon: Layout, color: "#E34F26" },
+      { name: "CSS3", icon: Layout, color: "#1572B6" },
+    ],
+  },
+
+  {
+    id: "state",
+    title: isRTL ? "إدارة الحالة" : "State Management",
+    icon: Layers,
+    colorClass: "from-purple-500/20 to-indigo-500/20 text-indigo-500",
+    skills: [
+      { name: "Redux Toolkit", icon: SiRedux, color: "#764ABC" },
+      { name: "RTK Query", icon: SiReactquery, color: "#FF4154" },
+      { name: "Zustand", icon: Zap, color: "#4338CA" },
+      { name: "Context API", icon: FaReact, color: "#61DAFB" },
+    ],
+  },
+
+  {
+    id: "database",
+    title: isRTL ? "قواعد البيانات" : "Database & ORM",
+    icon: DbIcon,
+    colorClass: "from-emerald-500/20 to-teal-500/20 text-emerald-500",
+    skills: [
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1", isMainStack: true },
+      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+      { name: "Prisma ORM", icon: SiPrisma, color: "#2D3748", isMainStack: true },
+      { name: "Sequelize", icon: DbIcon, color: "#52B0E7" },
+    ],
+  },
+
+  {
+    id: "validation",
+    title: isRTL ? "التحقق" : "Forms & Validation",
+    icon: ShieldCheck,
+    colorClass: "from-amber-500/20 to-yellow-500/20 text-amber-500",
+    skills: [
+      { name: "React Hook Form", icon: SiReacthookform, color: "#EC5990" },
+      { name: "Zod", icon: SiZod, color: "#3E67B1" },
+      { name: "Joi", icon: ShieldCheck, color: "#000000" },
+      { name: "Yup", icon: ShieldCheck, color: "#F97316" },
+    ],
+  },
+
+  {
+    id: "ui",
+    title: isRTL ? "واجهة المستخدم" : "UI & Design",
+    icon: Layout,
+    colorClass: "from-pink-500/20 to-rose-500/20 text-pink-500",
+    skills: [
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4", isMainStack: true },
+      { name: "shadcn/ui", icon: SiTailwindcss, color: "#000000" },
+      { name: "Material UI", icon: SiMui, color: "#007FFF" },
+      { name: "PrimeReact", icon: FaReact, color: "#1B6ED8" },
+      { name: "Flowbite", icon: SiTailwindcss, color: "#1C64F2" },
+      { name: "Framer Motion", icon: SiFramer, color: "#E91E63" },
+    ],
+  },
+
+  {
+    id: "devops",
+    title: isRTL ? "الأدوات" : "DevOps & Tools",
+    icon: Wrench,
+    colorClass: "from-slate-500/20 to-zinc-500/20 text-slate-500",
+    skills: [
+      { name: "Docker", icon: FaDocker, color: "#2496ED", isMainStack: true },
+      { name: "Git", icon: FaGitAlt, color: "#F05032", isMainStack: true },
+      { name: "GitHub", icon: FaGitAlt, color: "#181717" },
+      { name: "Postman", icon: Wrench, color: "#FF6C37" },
+      { name: "Vite", icon: Zap, color: "#646CFF" },
+    ],
+  },
+
+  {
+    id: "architecture",
+    title: isRTL ? "هندسة البرمجيات" : "Software Engineering",
+    icon: Layers,
+    colorClass: "from-orange-500/20 to-red-500/20 text-orange-500",
+    skills: [
+      { name: "Clean Architecture", icon: Layers, color: "#EA580C", isMainStack: true },
+      { name: "SOLID Principles", icon: ShieldCheck, color: "#0EA5E9", isMainStack: true },
+      { name: "Design Patterns", icon: Layers, color: "#8B5CF6" },
+      { name: "MVC Pattern", icon: Layout, color: "#22C55E" },
+      { name: "Repository Pattern", icon: Database, color: "#6366F1" },
+    ],
+  },
+];
 
   return (
     <section

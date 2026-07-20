@@ -134,7 +134,7 @@ export function Projects() {
                     <div className="absolute inset-0 w-full h-full transition-transform duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] scale-105 group-hover:scale-100 origin-center">
                       <img 
                         src={images[project.img as keyof typeof images] || images.ecommerce} 
-                        alt={project.title}
+                        alt={t(`projectsData.${project.id}.title`)} // 1. تعديل الـ alt
                         loading="lazy"
                         className="w-full h-full object-cover" 
                       />
@@ -152,14 +152,18 @@ export function Projects() {
                   <div className="p-8 pt-0 flex flex-col flex-1 relative z-20 -mt-16">
                     <div className="mb-6">
                       <div className="flex justify-between items-start mb-4 gap-4">
-                         <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-tight">{project.title}</h3>
+                         {/* 2. تعديل العنوان */}
+                         <h3 className="text-2xl font-extrabold text-foreground tracking-tight leading-tight">
+                           {t(`projectsData.${project.id}.title`)}
+                         </h3>
                          <div className="flex items-center gap-1.5 text-primary text-xs font-bold bg-primary/5 px-2.5 py-1.5 rounded-xl border border-primary/10 shadow-sm">
                             <Star className="w-3.5 h-3.5 fill-current" />
                             {project.stars}
                          </div>
                       </div>
+                      {/* 3. تعديل الوصف */}
                       <p className="text-foreground/80 dark:text-muted-foreground text-sm line-clamp-3 leading-relaxed font-medium">
-                        {project.description}
+                        {t(`projectsData.${project.id}.description`)}
                       </p>
                     </div>
 

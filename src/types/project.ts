@@ -1,23 +1,11 @@
-export interface CaseStudy {
-  problem: string;
-  solution: string;
-  challenges: string[];
-  architecture: string;
-  databaseDesign?: string;
-  scalability?: string;
-  architectureStack?: string;
-}
-
 export interface Project {
   id: string;
-  title: string;
-  description: string;
   tech: string[];
-  category: string;
+  category: 'frontend' | 'backend' | 'fullstack';
   img: string;
   github: string;
   live: string;
   featured: boolean;
   stars: number;
-  caseStudy: CaseStudy;
+  // لاحظ أننا شيلنا title, description, caseStudy لأنهم هيجوا من ملف الترجمة
 }
